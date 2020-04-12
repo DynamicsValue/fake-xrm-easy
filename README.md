@@ -1,2 +1,2 @@
-# fake-xrm-easy
-FakeXrmEasy: The Test Automation Framework for the Power Platform
+# FakeXrmEasy: The Test Automation Framework for the Power Platform
+
