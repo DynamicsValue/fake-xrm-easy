@@ -9,6 +9,8 @@ if(!($packagesFolderExists))
     New-Item $localPackagesFolder -ItemType Directory
 }
 
+dotnet --info
+
 dotnet restore
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error restoring packages"
