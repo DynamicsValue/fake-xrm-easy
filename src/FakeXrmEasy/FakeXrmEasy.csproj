@@ -26,6 +26,6 @@
       <PackageReference Include="Microsoft.Powerplatform.Cds.Client" Version="0.0.1.11-Alpha" />
       <PackageReference Include="Microsoft.Dynamics.Sdk.Messages" Version="0.0.1.11-Alpha" />
 
-      <PackageReference Include="FakeXrmEasy.Abstractions" Version="2.0.0.1" />
+      <PackageReference Include="FakeXrmEasy.Abstractions" Version="2.0.0.1-*" />
   </ItemGroup>
 </Project>
