@@ -10,6 +10,18 @@ if(!($packagesFolderExists))
 }
 
 dotnet restore
-dotnet build
+if(!($LASTEXITCODE -eq 0)) {
+    throw "Error restoring packages"
+}
 
-Write-Host "Succeeded :)"
+dotnet build --configuration Debug --no-restore
+if(!($LASTEXITCODE -eq 0)) {
+    throw "Error during build step"
+}
+
+dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+if(!($LASTEXITCODE -eq 0)) {
+    throw "Error during test step"
+}
+
+Write-Host  "*** Succeeded :)  **** " -ForegroundColor Green

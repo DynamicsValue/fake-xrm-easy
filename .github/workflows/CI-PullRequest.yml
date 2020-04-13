@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.201
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Install dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --configuration Debug --no-restore
+  
+    - name: Test
+      run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+  
+    - name: Sonarscanner for dotnet
+      uses: DynamicsValue/dotnet-sonarscanner@v2.2
+      with:
+        buildCommand: dotnet build . --configuration Debug
+        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+        projectName: fake-xrm-easy-abstractions
+        sonarOrganisation: dynamicsvalue
+        beginArguments: >
+            /d:sonar.verbose="true"
+            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**"'
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    
+    
+    

@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'coverage/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.201
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Build
+      run: pwsh ./build.ps1
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+  
+    - name: Sonarscanner for dotnet
+      uses: DynamicsValue/dotnet-sonarscanner@v2.2
+      with:
+        buildCommand: dotnet build . --configuration Debug
+        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+        projectName: fake-xrm-easy
+        sonarOrganisation: dynamicsvalue
+        beginArguments: >
+            /d:sonar.verbose="true"
+            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**"'
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+
+    - name: Pack & Push
+      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+
+
+    
+
+    
+    
+    
+    

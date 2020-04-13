@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>FakeXrmEasy</PackageId>
-    <Version>2.0.0.1-Alpha</Version>
+    <Version>2.0.0.1</Version>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
@@ -26,6 +26,6 @@
       <PackageReference Include="Microsoft.Powerplatform.Cds.Client" Version="0.0.1.11-Alpha" />
       <PackageReference Include="Microsoft.Dynamics.Sdk.Messages" Version="0.0.1.11-Alpha" />
 
-      <PackageReference Include="FakeXrmEasy.Abstractions" Version="1.0.0.0" />
+      <PackageReference Include="FakeXrmEasy.Abstractions" Version="2.0.0.1" />
   </ItemGroup>
 </Project>
