@@ -9,4 +9,3 @@
   - SonarQube quality gate
   - Now using GitHub Actions as opposed to AppVeyor previously in 1.x.
 
-
