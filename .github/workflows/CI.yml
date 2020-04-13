@@ -22,6 +22,9 @@ jobs:
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
 
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+
     - name: Build
       run: pwsh ./build.ps1
       env: 
