@@ -7,5 +7,6 @@
   - New semantinc versioning using prerelease suffixes [SemVer 2.0.0](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#semantic-versioning-200) 
   - New Build script in PowerShell Core for building both locally (build-local-push.ps1) and form GitHub actions
   - SonarQube quality gate
+  - Now using GitHub Actions as opposed to AppVeyor previously in 1.x.
 
 
