@@ -8,4 +8,5 @@
   - New Build script in PowerShell Core for building both locally (build-local-push.ps1) and form GitHub actions
   - SonarQube quality gate
   - Now using GitHub Actions as opposed to AppVeyor previously in 1.x.
+  - Introduced PluginContextProperties
 
