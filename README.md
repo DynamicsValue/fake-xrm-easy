@@ -51,3 +51,5 @@
    - New IStatusAttributeMetadataRepository and IOptionSetMetadataRepository
 
   - ValidateReferences public property has been moved to the middleware initialisation, defaulting to false while also adding the option to initialise it via .AddCrud(IIntegrityOptions)
+
+  - DateBehaviour has been removed since it belongs to Metadata, and so it will use now DateTimeBehaviors based on the injected EntityMetadata
