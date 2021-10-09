@@ -2,7 +2,7 @@ param (
     [string]$packageSource = "local-packages"
  )
 
-$project = "FakeXrmEasy.Plugins"
+$project = "FakeXrmEasy"
 
 Write-Host "Running with packageSource '$($packageSource)' ..."
 

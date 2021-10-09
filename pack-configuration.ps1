@@ -6,7 +6,7 @@ param (
 
 Write-Host "Packing configuration $($configuration)..."
 
-$project = "FakeXrmEasy.Plugins"
+$project = "FakeXrmEasy"
 $packageId = $project;
 
 if($configuration -eq "FAKE_XRM_EASY_9")
