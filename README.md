@@ -3,7 +3,7 @@
 
 ## What's New in 2.x?
 
-  - Support for .net core 3.1. Dropping support for full .NET framework (should add full .net??) in the short term (multi-target build pending)
+  - Support for .net core 3.1. / Full .NET framework support with multi-targeting   
   - Single original repo broken down into smaller, easier to maintain, repos
   - New semantinc versioning using prerelease suffixes [SemVer 2.0.0](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#semantic-versioning-200) 
   - Original FAKE build script has been redeveloped in Powershell Core for building both locally (build-local-push.ps1) and form GitHub actions, cross platform. 
