@@ -1,6 +1,6 @@
 By accessing the FakeXrmEasy Version 2 or later software libraries, you are agreeing to one of the following licenses, at your option, under the conditions summarized below:
 
-* If you wish to evaluate or use the FakeXrmEasy Version 2 or later software libraries (i) in a NonCommercial Manner* , or (ii) for any purpose other than NonCommercial Manner, you may download and access the source and/or binaries at no charge under the Reciprocal Public License 1.5 (RPL-1.5) (the “RPL”); 
+* If you wish to evaluate or use the FakeXrmEasy Version 2 or later software libraries (i) in a NonCommercial Manner* , or (ii) for any purpose other than NonCommercial Manner, you may download and access the source and/or binaries at no charge under [the Reciprocal Public License 1.5 (RPL-1.5) (the “RPL”)](https://github.com/DynamicsValue/fake-xrm-easy/blob/master/RPL_1_5.md); 
 
     or
 
@@ -8,7 +8,7 @@ By accessing the FakeXrmEasy Version 2 or later software libraries, you are agre
 
     or
 
-* If you wish to use the FakeXrmEasy Version 2 or later software libraries commercially without making available your source code and you are not a Public Environmental Protection Agency, or a Public Health Organization, you may download and use them (with the appropriate payment) under the SOFTWARE LICENSE AND SERVICE AGREEMENT (separate written agreement).
+* If you wish to use the FakeXrmEasy Version 2 or later software libraries commercially without making available your source code and you are not a Public Environmental Protection Agency, or a Public Health Organization, you may download and use them (with the appropriate payment) under the [SOFTWARE LICENSE AND SERVICE AGREEMENT](https://github.com/DynamicsValue/fake-xrm-easy/blob/master/EULA.md) (separate written agreement).
 
 
 ***Non-Commercial Manner** – consistent with the RPL – means any use of the FakeXrmEasy Version 2 or later software libraries by: (i) an individual (and not a business entity) solely for their personal, private, and non-commercial purposes; or (ii) an individual or business entity in an experimental manner to understand its nature, limits, and potential uses. The use, including business internal uses, of the FakeXrmEasy Version 2 or later for any purpose other than NonCommercial Manner under RPL requires that you make available to the FakeXrmEasy community the source code and any modifications, bug fixes, extensions, text, programs, scripts, schema, interface definitions, control files, or other works created by You which are required by a third party of average skill to successfully install and run the FakeXrmEasy Version 2 or later containing your modifications, or to install and run your derivative works, in accordance with the definitions, manner, terms and scope stated in the RPL License Terms.
