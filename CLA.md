@@ -1,5 +1,5 @@
 ### FakeXrmEasy Individual Contributor License Agreement (including the TRADITIONAL PATENT LICENSE OPTION) 
-----------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
 
 Thank you for your interest in contributing to Dynamics Value, S.L.'s FakeXrmEasy ("We" or "Us").
 The purpose of this contributor agreement ("Agreement") is to clarify and document the rights granted by contributors to Us. You acknowledge and agree that by submitting a request or making any code or remark contribution in your pull request, You are deemed to accept the terms of this Agreement and that this document is fully enforceable and effective for You. 
