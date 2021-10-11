@@ -16,13 +16,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # the below token should have repo scope and must be manually added by you in the repository's secret
-          PERSONAL_ACCESS_TOKEN : ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PERSONAL_ACCESS_TOKEN : ${{ secrets.CLA_TOKEN }}
         with:
-          path-to-signatures: 'cla/signatures/version1/cla.json'
-          path-to-document: 'https://github.com/DynamicsValue/fake-xrm-easy/blob/master/CLA.md' # e.g. a CLA or a DCO document
+          path-to-signatures: 'FakeXrmEasy/cla/signatures/version1/cla.json'
+          path-to-document: 'https://github.com/DynamicsValue/licence-agreements/blob/main/FakeXrmEasy/CLA.md' # e.g. a CLA or a DCO document
           # branch should not be protected
-          branch: 'master'
+          branch: 'main'
           allowlist: dependabot
+          remote-organization-name: 'DynamicsValue'
+          remote-repository-name: 'licence-agreements'
 
          #below are the optional inputs - If the optional inputs are not given, then default values will be taken
           #remote-organization-name: enter the remote organization name where the signatures should be stored (Default is storing the signatures in the same repository)
