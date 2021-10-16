@@ -1,0 +1,49 @@
+name: Delete old X packages in this repo for all configurations
+on:
+  workflow_dispatch:
+    inputs:
+      num:
+        description: 'Number of old packages to delete'
+        required: true
+        default: 1
+jobs:
+  delete-old-versions:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Delete Package Versions (v9)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v9"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
+
+    - name: Delete Package Versions (v365)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v365"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
+
+    - name: Delete Package Versions (v2016)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v2016"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
+
+    - name: Delete Package Versions (v2015)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v2015"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
+
+    - name: Delete Package Versions (v2013)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v2013"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
+
+    - name: Delete Package Versions (v2011)
+      uses: actions/delete-package-versions@v1.0.3
+      with:
+        package-name: "FakeXrmEasy.Core.v2011"
+        num-old-versions-to-delete: ${{ github.event.inputs.num }}
