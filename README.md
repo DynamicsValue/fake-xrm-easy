@@ -4,6 +4,7 @@
 ## Table of Contents
 
 [Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy?)
+
 [Installing](#installing)
 
 
