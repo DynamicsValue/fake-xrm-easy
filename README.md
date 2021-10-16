@@ -9,7 +9,7 @@
 
 [Installing](#installing)
 
-[What's New in 2.x?](#what''s-new-in-2.x)
+[What's New in 2.x?](#what-is-new-in-2.x)
 
 [Building](#building)
 
@@ -67,7 +67,7 @@ These are some general guidelines about the intended usage. This list will be up
 
 
 
-## What's New in 2.x
+## What is new in 2.x
 -------------------------------------------------
 
   - Support for .net core 3.1. / Full .NET framework support with multi-targeting   
