@@ -3,13 +3,13 @@
 
 ## Table of Contents
 
-[Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy??)
+[Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy)
 
 [Packages](#packages)
 
 [Installing](#installing)
 
-[What's New in 2.x?](#what''s-new-in-2.x??)
+[What's New in 2.x?](#what''s-new-in-2.x)
 
 [Building](#building)
 
@@ -19,7 +19,7 @@
 
 
 
-## Why should my company use FakeXrmEasy? 
+## Why should my company use FakeXrmEasy
 --------------------------------------------------
 
 FakeXrmEasy is trusted by giants and loved by developers. With more than 1.4M downloads of version 1, accounts for more than 20% of all the CRM SDK packages downloads, worlwide. 
@@ -67,7 +67,7 @@ These are some general guidelines about the intended usage. This list will be up
 
 
 
-## What's New in 2.x?
+## What's New in 2.x
 -------------------------------------------------
 
   - Support for .net core 3.1. / Full .NET framework support with multi-targeting   
