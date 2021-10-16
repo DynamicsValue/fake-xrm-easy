@@ -1,10 +1,22 @@
 
 # FakeXrmEasy: The Test Automation Framework for the Power Platform
 
+FakeXrmEasy version 2 or later is broken down into several repositories / packages below:
+
+
+|Repo/Package|Build|Quality Gate|Coverage|Security|Maintainability|Reliability|
+|------------|-----| ---------- | ------ | ------ | ------------- | --------- |
+|[FakeXrmEasy.Abstractions](https://github.com/DynamicsValue/fake-xrm-easy-abstractions)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-abstractions/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-abstractions&metric=alert_status&token=ecafcd1ed73f047af28e3cbdd3375fe1a789814c)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-abstractions)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-abstractions&metric=coverage&token=ecafcd1ed73f047af28e3cbdd3375fe1a789814c)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-abstractions)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-abstractions&metric=security_rating&token=ecafcd1ed73f047af28e3cbdd3375fe1a789814c)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-abstractions)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-abstractions&metric=sqale_rating&token=ecafcd1ed73f047af28e3cbdd3375fe1a789814c)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-abstractions)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-abstractions&metric=reliability_rating&token=ecafcd1ed73f047af28e3cbdd3375fe1a789814c)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-abstractions)|
+|[FakeXrmEasy.Core](https://github.com/DynamicsValue/fake-xrm-easy-core)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-core/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=alert_status&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=coverage&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=security_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=sqale_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=reliability_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|
+|[FakeXrmEasy.Plugins](https://github.com/DynamicsValue/fake-xrm-easy-plugins)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-plugins/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=alert_status&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=coverage&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=security_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=sqale_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=reliability_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|
+|[FakeXrmEasy.CodeActivities](https://github.com/DynamicsValue/fake-xrm-easy-plugins)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-code-activities/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=alert_status&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=coverage&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=security_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=sqale_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=reliability_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|
+
+
 ## What's New in 2.x?
+-------------------------------------------------
 
   - Support for .net core 3.1. / Full .NET framework support with multi-targeting   
-  - Single original repo broken down into smaller, easier to maintain, repos
+  - Single original repo broken down into smaller, more extensible and easier to maintain repos
   - New semantinc versioning using prerelease suffixes [SemVer 2.0.0](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#semantic-versioning-200) 
   - Original FAKE build script has been redeveloped in Powershell Core for building both locally (build-local-push.ps1) and form GitHub actions, cross platform. 
   - Added SonarCloud quality gate
@@ -53,3 +65,16 @@
   - ValidateReferences public property has been moved to the middleware initialisation, defaulting to false while also adding the option to initialise it via .AddCrud(IIntegrityOptions)
 
   - DateBehaviour has been removed since it belongs to Metadata, and so it will use now DateTimeBehaviors based on the injected EntityMetadata
+
+## Building
+-------------------------------------------
+
+
+## Contributing
+------------------------
+
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit [our CLA here](https://github.com/DynamicsValue/licence-agreements/blob/main/FakeXrmEasy/CLA.md).
+
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA. 
+
+
