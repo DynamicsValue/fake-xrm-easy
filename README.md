@@ -3,9 +3,20 @@
 
 ## Table of Contents
 
-[Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy?)
+[Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy??)
+
+[Packages](#packages)
 
 [Installing](#installing)
+
+[What's New in 2.x?](#what''s-new-in-2.x??)
+
+[Building](#building)
+
+[Contributing](#contributing)
+
+[License & FAQ](#license)
+
 
 
 ## Why should my company use FakeXrmEasy? 
