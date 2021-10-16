@@ -32,7 +32,7 @@ FakeXrmEasy version 2 or later is broken down into several repositories / packag
 
 Which package do I need to install? 
 
-One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when doing unit testing of plugins, you don't really the integration package. Similarly, when unit testing Azure Functions you don't probably need plugin testing helpers at all.
+One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when doing unit testing of plugins, you don't really need the integration package. Similarly, when unit testing Azure Functions you don't probably need plugin testing helpers at all.
 
 This architecture also supports adding optional extension packages depending on your needs (i.e. package for Security testing).
 
@@ -103,10 +103,46 @@ These are some general guidelines about the intended usage. This list will be up
 
   - DateBehaviour has been removed since it belongs to Metadata, and so it will use now DateTimeBehaviors based on the injected EntityMetadata
 
-## Building
--------------------------------------------
+# Building
 
-TO DO
+In order to build this project you will need .NET Core 3.1 and .NET 4.6.2 on Windows, and PowerShell 7.
+
+Since FakeXrmEasy version 2 or later is spread across multiple repos, you'll need to setup a certain folder structure that the powershell scripts will use to make it easier building all dependencies locally.
+
+When forking the repos, plase make sure to clone them so that they'll share the same parent folder, then add a brand new "local-packages" folder at the same level.
+
+Sample folder layout:
+
+     |---DynamicsValue\
+              |
+              |---------- local-packages\
+              |---------- fake-xrm-easy-abstractions\
+              |---------- fake-xrm-easy-core\
+              |---------- fake-xrm-easy-plugins\
+              |---------- fake-xrm-easy-code-activities\
+              |---------- fake-xrm-easy\
+
+The scripts will build and push packages locally to the file system into the default "local-packages" folder. This is handy to test and build everything locally without having to wait for a GitHub Action to complete on every change made. 
+
+
+## Building on Windows
+
+* [Installing PowerShell on Windows](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)
+   
+## Building on Linux
+
+* [Installing Powershell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
+
+Once installed, run the following commands:
+
+
+The following will just build the solution
+
+    pwsh ./build
+
+This command will build AND push the output package into a predefined local folder (this will create a local-packages folder where FakeXrmEasy.Abstractions will be pushed)
+
+    pwsh ./build-push-local
 
 ## Contributing
 ------------------------
@@ -121,3 +157,4 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 
 Please see [LICENSE.txt](https://github.com/DynamicsValue/fake-xrm-easy/blob/master/LICENSE.txt).
 
+License questions? Please see our [License FAQ](https://github.com/DynamicsValue/licence-agreements/blob/main/FakeXrmEasy/FAQ.md).
