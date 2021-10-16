@@ -1,6 +1,22 @@
 
-# FakeXrmEasy: The Test Automation Framework for the Power Platform
+# FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
 
+## Why should my company use FakeXrmEasy? 
+--------------------------------------------------
+
+FakeXrmEasy is trusted by giants and loved by developers. With more than 1.4M downloads of version 1, accounts for more than 20% of all the CRM SDK packages downloads, worlwide. 
+
+We conducted a pretty extensive research study over several months to measure the impact that FakeXrmEasy had on the development lifecycle of more than 30 different organisations.
+
+The research showed:
+
+-  Average of 191% increased ProDev efficiency due to the reduction of escaped defects
+-  Average of 33% increased ProDev efficiency due to other time savings
+
+You can find more details about the study [here: TODO add link](https://todo).
+
+## Packages
+----------------------------------------------------------------
 FakeXrmEasy version 2 or later is broken down into several repositories / packages below:
 
 
@@ -10,6 +26,27 @@ FakeXrmEasy version 2 or later is broken down into several repositories / packag
 |[FakeXrmEasy.Core](https://github.com/DynamicsValue/fake-xrm-easy-core)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-core/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=alert_status&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=coverage&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=security_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=sqale_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-core&metric=reliability_rating&token=275c67c8b62adac17e4e9a0ae210c77703d671d1)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-core)|
 |[FakeXrmEasy.Plugins](https://github.com/DynamicsValue/fake-xrm-easy-plugins)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-plugins/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=alert_status&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=coverage&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=security_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=sqale_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-plugins&metric=reliability_rating&token=97ba86baecacf2c2d8a4a398749c54c4bd3b0260)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-plugins)|
 |[FakeXrmEasy.CodeActivities](https://github.com/DynamicsValue/fake-xrm-easy-plugins)|![Build](https://github.com/DynamicsValue/fake-xrm-easy-code-activities/workflows/CI/badge.svg)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=alert_status&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=coverage&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=security_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=sqale_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DynamicsValue_fake-xrm-easy-code-activities&metric=reliability_rating&token=58def40fea2d6e0b001eff7d52dce7073ca778ca)](https://sonarcloud.io/dashboard?id=DynamicsValue_fake-xrm-easy-code-activities)|
+
+## Installing
+-----------------------------------------------
+
+Which package do I need to install? 
+
+One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when doing unit testing of plugins, you don't really the integration package. Similarly, when unit testing Azure Functions you don't probably need plugin testing helpers at all.
+
+This architecture also supports adding optional extension packages depending on your needs (i.e. package for Security testing).
+
+These are some general guidelines about the intended usage. This list will be updated over time to accomodate new packages.
+
+
+|Package|Use examples|
+|-------|------------|
+|FakeXrmEasy.Plugins|This package contains helpers to make it easy to unit test plugins (or the interactions between these plugins pipeline simulation -TBC-)|
+|FakeXrmEasy.CodeActivities|This package contains helpers to make it easy to unit test code activities|
+|FakeXrmEasy.Core| This is the core package, and will be needed across pretty much all uses and autmatically installed as a package dependency when you install any of the others|
+|FakeXrmEasy|This is an include package, it references pretty much all the other packages and is meant to be used a tool to ease migration from v1.x|
+
+
 
 
 ## What's New in 2.x?
@@ -69,6 +106,7 @@ FakeXrmEasy version 2 or later is broken down into several repositories / packag
 ## Building
 -------------------------------------------
 
+TO DO
 
 ## Contributing
 ------------------------
