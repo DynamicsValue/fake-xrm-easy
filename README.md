@@ -1,6 +1,12 @@
 
 # FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
 
+## Table of Contents
+
+[Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy?)
+[Installing](#installing)
+
+
 ## Why should my company use FakeXrmEasy? 
 --------------------------------------------------
 
