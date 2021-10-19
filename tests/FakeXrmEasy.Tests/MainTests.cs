@@ -1,5 +1,5 @@
 
-using XUnit;
+using Xunit;
 
 namespace FakeXrmEasy.Tests
 {
