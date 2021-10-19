@@ -7,15 +7,15 @@ $localPackageRestoreFolder = './packages'
 
 Write-Host "Restoring packages for configuration $($configuration)..."
 
-if($targetFrameworks -eq "all")
+if($targetFramework -eq "all")
 {
   Write-Host " -> Restoring packages for configuration $($configuration)..."
-  dotnet restore /p:Configuration=$configuration
+  dotnet restore --no-cache /p:Configuration=$configuration
 }
 else 
 {
-  Write-Host " -> Restoring packages for configuration $($configuration) and targetFramework $($targetFrameworks)..."
-  dotnet restore /p:Configuration=$configuration -p:TargetFrameworks=$targetFrameworks
+  Write-Host " -> Restoring packages for configuration $($configuration) and targetFrameworks $($targetFrameworks)..."
+  dotnet restore --no-cache /p:Configuration=$configuration -p:TargetFrameworks=$targetFrameworks
 }
 
 if(!($LASTEXITCODE -eq 0)) {

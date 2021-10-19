@@ -1,5 +1,5 @@
 param (
-    [string]$targetFramework = "netcoreapp3.1",
+    [string]$targetFrameworks = "netcoreapp3.1",
     [string]$configuration = "FAKE_XRM_EASY_9"
  )
 
@@ -12,36 +12,28 @@ if(!($packagesFolderExists))
 {
     New-Item $localPackagesFolder -ItemType Directory
 }
-if($targetFramework -eq "all")
-{
-    dotnet restore /p:Configuration=$configuration
-}
-else {
-    dotnet restore /p:Configuration=$configuration -p:TargetFrameworks=$targetFramework
-}
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error restoring packages"
-}
 
-if($targetFramework -eq "all")
+./restore.ps1 -configuration $configuration -targetFrameworks $targetFrameworks
+
+if($targetFrameworks -eq "all")
 {
     dotnet build --configuration $configuration --no-restore
 }
 else 
 {
-    dotnet build --configuration $configuration --no-restore --framework $targetFramework
+    dotnet build --configuration $configuration --no-restore --framework $targetFrameworks
 }
 if(!($LASTEXITCODE -eq 0)) {
     throw "Error during build step"
 }
 
-if($targetFramework -eq "all")
+if($targetFrameworks -eq "all")
 {
-    dotnet test --configuration $configuration --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
 }
 else 
 {
-    dotnet test --configuration $configuration --no-restore --framework $targetFramework --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --no-restore --framework $targetFrameworks --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
 }
 
 if(!($LASTEXITCODE -eq 0)) {
