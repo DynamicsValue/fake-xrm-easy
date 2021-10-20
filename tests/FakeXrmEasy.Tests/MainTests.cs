@@ -1,4 +1,5 @@
 
+
 using Xunit;
 
 namespace FakeXrmEasy.Tests
@@ -10,5 +11,14 @@ namespace FakeXrmEasy.Tests
         {
             Assert.True(true);
         }
+
+        /*
+
+        [ExternalFact]
+        public void ExternalTests()
+        {
+
+        }
+        */
     }
 }

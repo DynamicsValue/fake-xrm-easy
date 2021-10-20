@@ -1,43 +1,22 @@
 param (
-    [string]$targetFrameworks = "netcoreapp3.1",
-    [string]$configuration = "FAKE_XRM_EASY_9"
+    [string]$targetFrameworks = "netcoreapp3.1"
  )
 
-$localPackagesFolder = '../local-packages'
-Write-Host "Checking if local packages folder '$($localPackagesFolder)' exists..."
+Write-Host "Restoring packages..."
 
-$packagesFolderExists = Test-Path $localPackagesFolder -PathType Container
-
-if(!($packagesFolderExists)) 
+if($targetFrameworks -eq "netcoreapp3.1")
 {
-    New-Item $localPackagesFolder -ItemType Directory
-}
-
-./restore.ps1 -configuration $configuration -targetFrameworks $targetFrameworks
-
-if($targetFrameworks -eq "all")
-{
-    dotnet build --configuration $configuration --no-restore
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_365" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_9" -targetFrameworks $targetFrameworks
 }
 else 
 {
-    dotnet build --configuration $configuration --no-restore --framework $targetFrameworks
-}
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error during build step"
-}
-
-if($targetFrameworks -eq "all")
-{
-    dotnet test --configuration $configuration --no-build --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
-}
-else 
-{
-    dotnet test --configuration $configuration --no-build --no-restore --framework $targetFrameworks --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2013" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2015" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2016" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_365" -targetFrameworks $targetFrameworks
+    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_9" -targetFrameworks $targetFrameworks
 }
 
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error during test step"
-}
-
-Write-Host  "*** Succeeded :)  **** " -ForegroundColor Green
+Write-Host "Done building all configurations :) "
