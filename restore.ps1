@@ -5,7 +5,7 @@ param (
 $localPackageRestoreFolder = './packages'
 Write-Host "Checking if local packages folder '$($localPackageRestoreFolder)' exists..."
 
-$packageRestoreFolderExists = Test-Path $localPackageRestoreFolder -PathType Container
+$packageRestoreFolderExists = Test-Path $localPackageRestoreFolder -PathType leaf
 
 if(!($packageRestoreFolderExists)) 
 {
