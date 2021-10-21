@@ -15,35 +15,35 @@ jobs:
     - name: Delete Package Versions (v9)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v9"
+        package-name: "FakeXrmEasy.v9"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
 
     - name: Delete Package Versions (v365)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v365"
+        package-name: "FakeXrmEasy.v365"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
 
     - name: Delete Package Versions (v2016)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v2016"
+        package-name: "FakeXrmEasy.v2016"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
 
     - name: Delete Package Versions (v2015)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v2015"
+        package-name: "FakeXrmEasy.v2015"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
 
     - name: Delete Package Versions (v2013)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v2013"
+        package-name: "FakeXrmEasy.v2013"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
 
     - name: Delete Package Versions (v2011)
       uses: actions/delete-package-versions@v1.0.3
       with:
-        package-name: "FakeXrmEasy.Core.v2011"
+        package-name: "FakeXrmEasy.v2011"
         num-old-versions-to-delete: ${{ github.event.inputs.num }}
