@@ -2,14 +2,24 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
     paths-ignore:
       - 'coverage/**'
+      - '*.md'
+      - '*.txt'
+
+env: 
+  dotnet-version: 3.1.201
+  source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  build-netcore:
+    strategy:
+      fail-fast: false 
+      matrix: 
+        os: [ubuntu-latest, macos-latest]
+    
+    runs-on: ${{matrix.os}} 
 
     steps:
     - uses: actions/checkout@v2
@@ -17,46 +27,122 @@ jobs:
     - name: Setup .NET Core for Actual Source
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.201
+        dotnet-version: ${{ env.dotnet-version }}
  
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
 
     - name: Enable GitHub packages feed
       run: dotnet nuget enable source github
-
+      
     - name: Build
       run: pwsh ./build.ps1
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
   
-    - name: Sonarscanner for dotnet
-      uses: DynamicsValue/dotnet-sonarscanner@v2.2
+  build-windows:
+    strategy:
+      fail-fast: false 
+      matrix: 
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013','FAKE_XRM_EASY']
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
       with:
-        buildCommand: dotnet build . --configuration Debug
-        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        dotnet-version: ${{ env.dotnet-version }}
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+      
+    - name: Build
+      run: pwsh ./build.ps1 -configuration ${{matrix.configuration}} -targetFrameworks 'all'
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+
+  sonar:
+    needs: build-netcore
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github 
+
+    - name: Quality Gate
+      uses: DynamicsValue/dotnet-sonarscanner@v2.3
+      with:
+        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1
+        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
-            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
-            /d:sonar.coverage.exclusions='"tests/**"'
+            /d:sonar.qualitygate.wait="true"
+            /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**/**"'
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
-    - name: Pack & Push
-      run: pwsh ./push.ps1 -packageSource "github" -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
-      env: 
-        NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+  pack-push:
+    needs:  [build-netcore, build-windows, sonar]
+    runs-on: windows-latest
 
+    steps:
+      - uses: actions/checkout@v2
 
-    
+      - name: Setup .NET Core for Actual Source
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.dotnet-version }}
+ 
+      - name: Disable local packages feed
+        run: dotnet nuget disable source "local-packages"
+
+      - name: Enable GitHub packages feed
+        run: dotnet nuget enable source github 
+
+      - name: Build
+        run: pwsh ./build.ps1 -targetFrameworks 'all'
+        env: 
+          NUGET_USERNAME: DynamicsValue
+          NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Pack
+        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
+        env: 
+          NUGET_USERNAME: DynamicsValue
+          NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Push Src
+        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }}
+        env: 
+          NUGET_USERNAME: DynamicsValue
+          NUGET_AUTH_TOKEN: ${{ github.token }}
+          NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
     
     
