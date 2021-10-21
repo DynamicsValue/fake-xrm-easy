@@ -10,6 +10,8 @@ function Test-OneAssemblyAtPath
         [string]$assemblyName
     )
 
+    $dirSeparator = [IO.Path]::DirectorySeparatorChar
+
     Write-Host "Preparing tests for $($assemblyPath)..." -ForegroundColor Yellow
 
     Write-Host "Checking if runtime config exists at $($assemblyPath)..." -ForegroundColor Yellow
@@ -25,7 +27,7 @@ function Test-OneAssemblyAtPath
     }
 
     Write-Host "Running tests for $($assemblyPath)..." -ForegroundColor Yellow
-    dotnet test "$($assemblyPath)/$($assemblyName).dll"
+    dotnet test "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
 }
 
 function Test-AssembliesAtPath 
