@@ -10,12 +10,12 @@ Write-Host "Restoring packages for configuration $($configuration)..."
 if($targetFrameworks -eq "all")
 {
   Write-Host " -> Restoring packages for configuration $($configuration)..."
-  dotnet restore --no-cache /p:Configuration=$configuration
+  dotnet restore --no-cache --force /p:Configuration=$configuration
 }
 else 
 {
   Write-Host " -> Restoring packages for configuration $($configuration) and targetFrameworks $($targetFrameworks)..."
-  dotnet restore --no-cache /p:Configuration=$configuration -p:TargetFrameworks=$targetFrameworks
+  dotnet restore --no-cache --force /p:Configuration=$configuration -p:TargetFrameworks=$targetFrameworks
 }
 
 if(!($LASTEXITCODE -eq 0)) {
