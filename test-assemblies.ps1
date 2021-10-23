@@ -42,7 +42,7 @@ function Test-AssembliesAtPath
     Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.CodeActivities.Tests"
 }
 
-$targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFramework)"
+$targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks)"
 
 if($targetFrameworks -eq "all")
 {

@@ -12,6 +12,11 @@
     <Configurations>Debug;Release;FAKE_XRM_EASY;FAKE_XRM_EASY_2013;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_365;FAKE_XRM_EASY_9</Configurations>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../../LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="../../FakeXrmEasyLogo_128x128.png" Pack="true" PackagePath="/" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DefineConstants>DEBUG;TRACE;FAKE_XRM_EASY_9</DefineConstants>
   </PropertyGroup>
