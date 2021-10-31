@@ -5,17 +5,26 @@ param (
 
 $localPackageRestoreFolder = './packages'
 
-Write-Host "Restoring packages for configuration $($configuration)..."
+Write-Host "Deleting previous dependencies..." -ForegroundColor Yellow
+$restoredPackagesFolder = './packages'
+$restoredPackagesFolderExists = Test-Path $restoredPackagesFolder -PathType Container
 
-if($targetFrameworks -eq "all")
+if($restoredPackagesFolderExists) 
 {
-  Write-Host " -> Restoring packages for configuration $($configuration)..."
-  dotnet restore --no-cache --force /p:Configuration=$configuration
+    Get-ChildItem -Path $restoredPackagesFolder -Include fakexrmeasy.* -Directory -Recurse -Force | Remove-Item -Recurse -Force
 }
 else 
 {
-  Write-Host " -> Restoring packages for configuration $($configuration) and targetFrameworks $($targetFrameworks)..."
-  dotnet restore --no-cache --force /p:Configuration=$configuration -p:TargetFrameworks=$targetFrameworks
+    New-Item $restoredPackagesFolder -ItemType Directory
+}
+
+
+if($targetFrameworks -eq "all")
+{
+    dotnet restore --no-cache --force --force-evaluate /p:Configuration=$configuration /p:PackTests=$packTests --packages $restoredPackagesFolder
+}
+else {
+    dotnet restore --no-cache --force --force-evaluate /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks --packages $restoredPackagesFolder
 }
 
 if(!($LASTEXITCODE -eq 0)) {

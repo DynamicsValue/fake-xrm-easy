@@ -111,6 +111,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2011" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2011" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v2011" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2011" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v2011" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2011" Version="2.0.1-*" />
@@ -121,6 +123,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2013" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2013" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v2013" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2013" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v2013" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2013" Version="2.0.1-*" />
@@ -131,6 +135,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2015" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2015" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v2015" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2015" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v2015" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2015" Version="2.0.1-*" />
@@ -141,6 +147,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2016" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2016" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v2016" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2016" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v2016" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2016" Version="2.0.1-*" />
@@ -151,6 +159,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v365" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v365" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v365" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v365" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v365" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v365" Version="2.0.1-*" />
@@ -161,6 +171,8 @@
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CoreTests.v9" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.PluginsTests.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="2.0.1-*" />
