@@ -1,8 +1,8 @@
-name: CI
+name: Push to Nuget
 
 on:
   push:
-    branches: [ 3x-dev ]
+    branches: [ 3x ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'
@@ -139,9 +139,9 @@ jobs:
       - name: Push Src
         run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }}
         env: 
-          NUGET_USERNAME: DynamicsValue
-          NUGET_AUTH_TOKEN: ${{ github.token }}
-          NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUGET_USERNAME: ${{ secrets.NUGET_USERNAME  }}
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN  }}
+          NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
 
 
     
