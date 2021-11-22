@@ -73,6 +73,7 @@
     <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="3.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2011" Version="3.0.1-*" />
   </ItemGroup>
+  
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="3.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v2013" Version="3.0.1-*" />

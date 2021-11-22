@@ -24,7 +24,6 @@ if($targetFrameworks -eq "netcoreapp3.1")
 }
 else 
 {
-    ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY" -targetFrameworks $targetFrameworks
     ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY_2013" -targetFrameworks $targetFrameworks
     ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY_2015" -targetFrameworks $targetFrameworks
     ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY_2016" -targetFrameworks $targetFrameworks

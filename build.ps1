@@ -11,7 +11,6 @@ if($targetFrameworks -eq "netcoreapp3.1")
 }
 else 
 {
-    ./build-configuration.ps1 -configuration "FAKE_XRM_EASY" -targetFrameworks $targetFrameworks
     ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2013" -targetFrameworks $targetFrameworks
     ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2015" -targetFrameworks $targetFrameworks
     ./build-configuration.ps1 -configuration "FAKE_XRM_EASY_2016" -targetFrameworks $targetFrameworks
