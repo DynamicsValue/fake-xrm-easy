@@ -41,33 +41,8 @@ $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks
 
 if($targetFrameworks -eq "all")
 {
-    if($configuration -eq "FAKE_XRM_EASY_365") 
-    {
-        $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net452"
-        Test-AssembliesAtPath -assemblyPath $targetPath
-
-        $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net462"
-        Test-AssembliesAtPath -assemblyPath $targetPath
-
-        $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/netcoreapp3.1"
-        Test-AssembliesAtPath -assemblyPath $targetPath
-    }
-    else 
-    {
-        if($configuration -eq "FAKE_XRM_EASY_9") 
-        {
-            $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net462"
-            Test-AssembliesAtPath -assemblyPath $targetPath
-
-            $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/netcoreapp3.1"
-            Test-AssembliesAtPath -assemblyPath $targetPath
-        }
-        else 
-        {
-            $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net452"
-            Test-AssembliesAtPath -assemblyPath $targetPath
-        }
-    } 
+    $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/netcoreapp3.1"
+    Test-AssembliesAtPath -assemblyPath $targetPath 
 }
 else 
 {
