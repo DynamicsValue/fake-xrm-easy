@@ -10,7 +10,7 @@ on:
 
 env: 
   dotnet-version: 3.1.201
-  source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
+  source-url: "https://api.nuget.org/v3/index.json"
 
 jobs:
   build-netcore:
@@ -137,11 +137,8 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Src
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }}
-        env: 
-          NUGET_USERNAME: ${{ secrets.NUGET_USERNAME  }}
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN  }}
-          NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
+        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey ${{ secrets.NUGET_API_KEY }} 
+
 
 
     
