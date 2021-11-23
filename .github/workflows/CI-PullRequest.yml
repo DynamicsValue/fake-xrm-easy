@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ 2x-dev, 3x-dev ]
 
 jobs:
   build:

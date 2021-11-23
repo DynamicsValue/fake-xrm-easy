@@ -1,8 +1,8 @@
-name: CI
+name: Push to Nuget
 
 on:
   push:
-    branches: [ 2x-dev, 3x-dev ]
+    branches: [ 3x, main ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'
@@ -10,7 +10,7 @@ on:
 
 env: 
   dotnet-version: 3.1.201
-  source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
+  source-url: "https://api.nuget.org/v3/index.json"
 
 jobs:
   build-netcore:
@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false 
       matrix: 
-        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013','FAKE_XRM_EASY']
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013']
 
     runs-on: windows-latest
 
@@ -59,9 +59,6 @@ jobs:
  
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
-
-    - name: Enable GitHub packages feed
-      run: dotnet nuget enable source github
       
     - name: Build
       run: pwsh ./build.ps1 -configuration ${{matrix.configuration}} -targetFrameworks 'all'
@@ -121,9 +118,6 @@ jobs:
       - name: Disable local packages feed
         run: dotnet nuget disable source "local-packages"
 
-      - name: Enable GitHub packages feed
-        run: dotnet nuget enable source github 
-
       - name: Build
         run: pwsh ./build.ps1 -targetFrameworks 'all'
         env: 
@@ -131,17 +125,14 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Pack
-        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
+        run: pwsh ./pack-src.ps1 -targetFrameworks 'all' -versionSuffix "rc1.${{ github.head_ref }}${{ github.run_number }}"
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Src
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }}
-        env: 
-          NUGET_USERNAME: DynamicsValue
-          NUGET_AUTH_TOKEN: ${{ github.token }}
-          NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey ${{ secrets.NUGET_API_KEY }} 
+
 
 
     
