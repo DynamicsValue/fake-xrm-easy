@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false 
       matrix: 
-        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013']
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013', 'FAKE_XRM_EASY']
 
     runs-on: windows-latest
 
@@ -117,6 +117,9 @@ jobs:
  
       - name: Disable local packages feed
         run: dotnet nuget disable source "local-packages"
+
+      - name: Enable GitHub packages feed
+        run: dotnet nuget enable source github
 
       - name: Build
         run: pwsh ./build.ps1 -targetFrameworks 'all'
