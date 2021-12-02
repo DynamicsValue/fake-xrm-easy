@@ -1,6 +1,8 @@
 
 # FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
 
+This README is intended at contributors and provides info about building / contributing to the project. For general guidelines about the usage (how to use etc) there is a [dedicated docs site here](https://dynamicsvalue.github.io/fake-xrm-easy-docs/).
+
 ## Table of Contents
 
 [Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy)
@@ -31,7 +33,7 @@ The research showed:
 -  Average of 191% increased ProDev efficiency due to the reduction of escaped defects
 -  Average of 33% increased ProDev efficiency due to other time savings
 
-You can find more details about the study [here: TODO add link](https://todo).
+You can find more details about the study [here](https://dynamicsvalue.github.io/fake-xrm-easy-docs/why/study-summary/).
 
 ## Packages
 ----------------------------------------------------------------
@@ -51,19 +53,20 @@ FakeXrmEasy version 2 or later is broken down into several repositories / packag
 
 Which package do I need to install? 
 
-One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when doing unit testing of plugins, you don't really need the integration package. Similarly, when unit testing Azure Functions you don't probably need plugin testing helpers at all.
+One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when developing azure functions, you don't need helpers or methods to execute plugins. When developing plugins, some users might prefer to just unit test the plugin logic, other might want to perform a more deep level of testing by using pipeline simulation (testing the interaction between several plugins). 
 
-This architecture also supports adding optional extension packages depending on your needs (i.e. package for Security testing).
+The architecture in v2.x and v3.x is modular in that it makes easier adding extension packages to a now configurable middleware.
 
 These are some general guidelines about the intended usage. This list will be updated over time to accomodate new packages.
 
 
 |Package|Use examples|
 |-------|------------|
-|FakeXrmEasy.Plugins|This package contains helpers to make it easy to unit test plugins (or the interactions between these plugins pipeline simulation -TBC-)|
+|FakeXrmEasy.Plugins|This package contains helpers to make it easy to unit test plugins (or the interactions between these plugins if you enable pipeline simulation in the middleware.)|
 |FakeXrmEasy.CodeActivities|This package contains helpers to make it easy to unit test code activities|
-|FakeXrmEasy.Core| This is the core package, and will be needed across pretty much all uses and autmatically installed as a package dependency when you install any of the others|
-|FakeXrmEasy|This is an include package, it references pretty much all the other packages and is meant to be used a tool to ease migration from v1.x|
+|FakeXrmEasy.Core| This is the core package, and will be needed across pretty much all uses and automatically installed as a package dependency when you install any of the others. This package also contains basic CRUD operations.|
+|FakeXrmEasy.Messages|Package that contains further implementations for many other OrganizationRequests|
+|FakeXrmEasy|This is an include package, it references pretty much all the other packages and is meant to be used a tool to ease migration from v1.x.|
 
 
 
