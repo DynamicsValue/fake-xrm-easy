@@ -159,6 +159,18 @@ You'll need to build (and push locally at least) packages in the following order
 6. fake-xrm-easy
 
 
+## Branching Strategy
+
+The repos share a common branching strategy. There are the following long lived branches:
+
+- 2x-dev: The current dev branch for 2.x versions. The CI action will push packages into out GitHub packages so other repos could grab the outputs from the other builds.
+- 3x-dev: Similarly to 2.x: the current dev branch for 3x versions
+- main: The current production branch for 2.x versions. Packages in this branch will be automaticlaly pushed into Nuget.
+- 3x: The current production branch for 3.x versions. Packages in this branch will be automaticlaly pushed into Nuget.
+
+The default branch for accepting PRs is 2x-dev. We'll be merging down to 3x-dev to keep functionality as close as possible across versions.
+
+
 ## Contributing
 ------------------------
 
