@@ -105,7 +105,6 @@ Sample folder layout:
 
 The scripts will build and push packages locally to the file system into the default "local-packages" folder. This is handy to test and build everything locally without having to wait for a GitHub Action to complete on every change made. 
 
-
 ## Building on Windows
 
 * [Installing PowerShell on Windows](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)
@@ -114,16 +113,48 @@ The scripts will build and push packages locally to the file system into the def
 
 * [Installing Powershell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
 
+
+There is a fundamental difference between 2.x and 3.x versions. 2.x are multi-target packages. However, in 3.x we dropped support for it and it has a single target: .net core 3.1. 
+Even though the build scripts are pretty much identical, when building 2.x versions you'll need to pass in the -targetFrameworks all parameter.
+
 Once installed, run the following commands:
 
+### Building
 
 The following will just build the solution
 
-    pwsh ./build
+*2.x Versions*
+
+    pwsh ./build.ps1 -targetFrameworks all
+
+*3.x Versions*
+
+    pwsh ./build.ps1
 
 This command will build AND push the output package into a predefined local folder (this will create a local-packages folder where FakeXrmEasy.Abstractions will be pushed)
 
-    pwsh ./build-push-local
+*2.x Versions*
+
+    pwsh ./build-push-local.ps1 -targetFrameworks all
+
+*3.x Versions*
+
+    pwsh ./build-push-local.ps1
+
+
+Also keep in mind **fake-xrm-easy-codeactivities is a Windows only package**, as it depends on System.Activities which wasn't ported to .net core.
+
+## Build Dependencies
+
+You'll need to build (and push locally at least) packages in the following order because of the dependencies:
+
+1. fake-xrm-easy-abstractions
+2. fake-xrm-easy-core
+3. fake-xrm-easy-messages
+4. fake-xrm-easy-plugins
+5. fake-xrm-easy-codeactivities
+6. fake-xrm-easy
+
 
 ## Contributing
 ------------------------
