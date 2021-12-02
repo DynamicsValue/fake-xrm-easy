@@ -38,8 +38,6 @@ function Test-AssembliesAtPath
 
     Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Abstractions.Tests"
     Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Core.Tests"
-    Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Plugins.Tests"
-    Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.CodeActivities.Tests"
 }
 
 $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks)"
