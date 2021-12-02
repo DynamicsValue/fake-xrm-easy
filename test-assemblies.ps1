@@ -10,7 +10,9 @@ function Test-OneAssemblyAtPath
         [string]$assemblyName
     )
 
-    Write-Host "Preparing tests for $($assemblyPath)..." -ForegroundColor Yellow
+    $dirSeparator = [IO.Path]::DirectorySeparatorChar
+
+    Write-Host " -> Preparing tests for $($assemblyName)..." -ForegroundColor Yellow
 
     Write-Host "Checking if runtime config exists at $($assemblyPath)..." -ForegroundColor Yellow
     $packageRuntimeConfigPath = "$($assemblyPath)/$($assemblyName).runtimeconfig.json"
@@ -24,8 +26,8 @@ function Test-OneAssemblyAtPath
         Copy-Item $runtimeConfigPath -Destination $packageRuntimeConfigPath
     }
 
-    Write-Host "Running tests for $($assemblyPath)..." -ForegroundColor Yellow
-    dotnet test "$($assemblyPath)/$($assemblyName).dll"
+    Write-Host  " -> Running tests for $($assemblyName)..." -ForegroundColor Yellow
+    dotnet test "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
 }
 
 function Test-AssembliesAtPath 
@@ -35,6 +37,9 @@ function Test-AssembliesAtPath
     )
 
     Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Abstractions.Tests"
+    Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Core.Tests"
+    Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.Plugins.Tests"
+    Test-OneAssemblyAtPath -assemblyPath $assemblyPath -assemblyName "FakeXrmEasy.CodeActivities.Tests"
 }
 
 $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks)"
