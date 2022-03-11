@@ -24,10 +24,10 @@ git checkout $branch
 
 if(!$branch.StartsWith("3x"))
 {
-    Set-Location "../fake-xrm-easy-code-activites"
+    Set-Location "../fake-xrm-easy-code-activities"
     git checkout $branch
 }
 
-
+Set-Location "../fake-xrm-easy"
 
 
