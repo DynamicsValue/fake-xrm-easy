@@ -13,7 +13,6 @@
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
-    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform. This is an include package that will install all packages for you.</PackageDescription>
     <Copyright>(c) 2014 Jordi Montaña</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -156,4 +155,22 @@
     <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="2.0.1-*" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="2.0.1-*" />
   </ItemGroup>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <Message Text="Value of MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" />
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    </ReadLinesFromFile>
+    <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
+    <PropertyGroup>
+      <PackageDescription>
+FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an include package.
+
+RELEASE NOTES
+------------------
+@(ReleaseNoteLines, '%0a')
+      </PackageDescription>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 </Project>
