@@ -2,7 +2,7 @@ name: Push to Nuget
 
 on:
   push:
-    branches: [ 3x ]
+    branches: [ 3x, main ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'
@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false 
       matrix: 
-        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013']
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013', 'FAKE_XRM_EASY']
 
     runs-on: windows-latest
 
@@ -59,7 +59,7 @@ jobs:
  
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
-
+    
     - name: Enable GitHub packages feed
       run: dotnet nuget enable source github
       
@@ -122,7 +122,7 @@ jobs:
         run: dotnet nuget disable source "local-packages"
 
       - name: Enable GitHub packages feed
-        run: dotnet nuget enable source github 
+        run: dotnet nuget enable source github
 
       - name: Build
         run: pwsh ./build.ps1 -targetFrameworks 'all'
@@ -131,7 +131,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Pack
-        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "ci.${{ github.head_ref }}${{ github.run_number }}"
+        run: pwsh ./pack-src.ps1 -targetFrameworks 'all' -versionSuffix "rc1.${{ github.head_ref }}${{ github.run_number }}"
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}

@@ -13,7 +13,6 @@
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
-    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform</PackageDescription>
     <Copyright>(c) 2014 Jordi Montaña</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -21,6 +20,10 @@
     <PackageTags>dynamics;crm;365;unit testing;xrm;mock;mocking;fake;fakes;cds;common data service;power platform</PackageTags>
     <RepositoryUrl>https://github.com/DynamicsValue/fake-xrm-easy</RepositoryUrl>
     <Configurations>Debug;Release;FAKE_XRM_EASY;FAKE_XRM_EASY_2013;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_365;FAKE_XRM_EASY_9</Configurations>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyOriginatorKeyFile>..\..\fakexrmeasy.snk</AssemblyOriginatorKeyFile>
+		<SignAssembly>True</SignAssembly>
+    <PublicSign Condition="'$(OS)'=='Unix'">true</PublicSign>    
   </PropertyGroup>
 
   <ItemGroup>
@@ -94,4 +97,22 @@
     <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="3.0.1-*" />
     <PackageReference Include="FakeXrmEasy.Core.v9" Version="3.0.1-*" />
   </ItemGroup>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <Message Text="Value of MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" />
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    </ReadLinesFromFile>
+    <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
+    <PropertyGroup>
+      <PackageDescription>
+FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an include package.
+
+RELEASE NOTES
+------------------
+@(ReleaseNoteLines, '%0a')
+      </PackageDescription>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 </Project>
