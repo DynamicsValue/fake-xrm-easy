@@ -13,7 +13,7 @@
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
-    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform</PackageDescription>
+    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform. This is an include package that will install all packages for you.</PackageDescription>
     <Copyright>(c) 2014 Jordi Montaña</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
