@@ -13,6 +13,15 @@ if(!($packagesFolderExists))
     New-Item $localPackagesFolder -ItemType Directory
 }
 
+Write-Host " -> Cleaning..." -ForegroundColor Yellow
+if($targetFrameworks -eq "all")
+{
+    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests
+}
+else {
+    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
+}
+
 Write-Host "Restoring configuration '$($configuration)' and target framework '$($targetFrameworks)'..." -ForegroundColor Yellow
 ./restore-configuration.ps1 -configuration $configuration -targetFrameworks $targetFrameworks
 
