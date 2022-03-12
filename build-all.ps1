@@ -16,8 +16,5 @@ Set-Location "../fake-xrm-easy-messages"
 Set-Location "../fake-xrm-easy-plugins"
 ./build-push-local.ps1 -targetFrameworks $targetFrameworks
 
-Set-Location "../fake-xrm-easy-code-activities"
-./build-push-local.ps1 -targetFrameworks $targetFrameworks
-
 Set-Location "../fake-xrm-easy"
 ./build-push-local.ps1 -targetFrameworks $targetFrameworks
