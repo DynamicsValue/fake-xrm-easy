@@ -1,9 +1,9 @@
 
 param (
-    [string]$targetFramework = "netcoreapp3.1"
+    [string]$targetFrameworks = "netcoreapp3.1"
 )
 
-./build.ps1 -targetFramework $targetFramework
-./pack.ps1 -targetFrameworks $targetFramework -versionSuffix "zlocal"
+./build.ps1 -targetFramework $targetFrameworks
+./pack.ps1 -targetFrameworks $targetFrameworks -versionSuffix "zlocal"
 ./push.ps1 -packageSource "local-packages"
 
