@@ -82,6 +82,7 @@ These are some general guidelines about the intended usage. This list will be up
   - Now using GitHub Actions as opposed to AppVeyor previously in 1.x.
   - ** New Middleware!!! ** => effectivley rewritten the core implementation (based on aspnetcore middleware)
   - New GetProperty / SetProperty to allow to dynamically extend context properties
+  - Pipeline Simulation has been redesigned to support any message, not just CRUD operations
   - Massive refactoring
 
   
