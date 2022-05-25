@@ -21,6 +21,9 @@ if($targetFrameworks -eq "all")
 else {
     dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
 }
+if(!($LASTEXITCODE -eq 0)) {
+    Write-Host " -> Warning on cleaning phase..." ForegroundColor Yellow
+}
 
 Write-Host "Restoring configuration '$($configuration)' and target framework '$($targetFrameworks)'..." -ForegroundColor Yellow
 ./restore-configuration.ps1 -configuration $configuration -targetFrameworks $targetFrameworks

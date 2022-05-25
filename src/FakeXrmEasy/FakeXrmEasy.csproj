@@ -1,19 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(Configuration)'=='Debug'">netcoreapp3.1</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">netcoreapp3.1;net462</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">netcoreapp3.1;net462;net452</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='Debug'">net462</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">net462</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">net462;net452</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">net452</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">net452</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net452</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net452</TargetFrameworks>
     <PackageId>FakeXrmEasy</PackageId>
-    <VersionPrefix>2.0.1</VersionPrefix>
+    <VersionPrefix>2.1.0</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
-    <PackageDescription>FakeXrmEasy is the open source test automation framework for .net core and the Power Platform</PackageDescription>
     <Copyright>(c) 2014 Jordi Montaña</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
@@ -60,18 +59,9 @@
     <DefineConstants>DEBUG;TRACE;FAKE_XRM_EASY_9</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-    <DefineConstants>$(DefineConstants);NETCOREAPP3_1;FAKE_XRM_EASY_NETCORE</DefineConstants>
-  </PropertyGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-    <PackageReference Include="Microsoft.Powerplatform.Cds.Client" Version="0.0.1.11-Alpha" />
-    <PackageReference Include="Microsoft.Dynamics.Sdk.Messages" Version="0.0.1.11-Alpha" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_9'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.0.5" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.0.5" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.27" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.2.4" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
@@ -115,45 +105,63 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v2011" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v2011" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v2013" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v2013" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2015" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v2015" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2015" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v2015" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2016" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v2016" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2016" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v2016" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v365" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v365" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v365" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v365" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v365" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v365" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v9" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="2.0.1-*" />
-    <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="2.0.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v9" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="[2.1.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="[2.1.0-*,3.0)" />
   </ItemGroup>
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <Message Text="Value of MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" />
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    </ReadLinesFromFile>
+    <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
+    <PropertyGroup>
+      <PackageDescription>
+FakeXrmEasy is the open source test automation framework for .net core and the Power Platform / Dataverse. This is an include package.
+
+RELEASE NOTES
+------------------
+@(ReleaseNoteLines, '%0a')
+      </PackageDescription>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 </Project>

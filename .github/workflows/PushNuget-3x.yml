@@ -1,8 +1,8 @@
-name: Push to Nuget
+name: Push to Nuget (3x)
 
 on:
   push:
-    branches: [ 3x, main ]
+    branches: [ 3x ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'

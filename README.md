@@ -1,6 +1,8 @@
 
 # FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
 
+This README is intended at contributors and provides info about building / contributing to the project. For general guidelines about the usage (how to use etc) there is a [dedicated docs site here](https://dynamicsvalue.github.io/fake-xrm-easy-docs/).
+
 ## Table of Contents
 
 [Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy)
@@ -31,7 +33,7 @@ The research showed:
 -  Average of 191% increased ProDev efficiency due to the reduction of escaped defects
 -  Average of 33% increased ProDev efficiency due to other time savings
 
-You can find more details about the study [here: TODO add link](https://todo).
+You can find more details about the study [here](https://dynamicsvalue.github.io/fake-xrm-easy-docs/why/study-summary/).
 
 ## Packages
 ----------------------------------------------------------------
@@ -51,19 +53,20 @@ FakeXrmEasy version 2 or later is broken down into several repositories / packag
 
 Which package do I need to install? 
 
-One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when doing unit testing of plugins, you don't really need the integration package. Similarly, when unit testing Azure Functions you don't probably need plugin testing helpers at all.
+One of the reasons to separate the original package in v1.x into smaller ones in v2.x was the single responsibility principle. For example, when developing azure functions, you don't need helpers or methods to execute plugins. When developing plugins, some users might prefer to just unit test the plugin logic, other might want to perform a more deep level of testing by using pipeline simulation (testing the interaction between several plugins). 
 
-This architecture also supports adding optional extension packages depending on your needs (i.e. package for Security testing).
+The architecture in v2.x and v3.x is modular in that it makes easier adding extension packages to a now configurable middleware.
 
 These are some general guidelines about the intended usage. This list will be updated over time to accomodate new packages.
 
 
 |Package|Use examples|
 |-------|------------|
-|FakeXrmEasy.Plugins|This package contains helpers to make it easy to unit test plugins (or the interactions between these plugins pipeline simulation -TBC-)|
+|FakeXrmEasy.Plugins|This package contains helpers to make it easy to unit test plugins (or the interactions between these plugins if you enable pipeline simulation in the middleware.)|
 |FakeXrmEasy.CodeActivities|This package contains helpers to make it easy to unit test code activities|
-|FakeXrmEasy.Core| This is the core package, and will be needed across pretty much all uses and autmatically installed as a package dependency when you install any of the others|
-|FakeXrmEasy|This is an include package, it references pretty much all the other packages and is meant to be used a tool to ease migration from v1.x|
+|FakeXrmEasy.Core| This is the core package, and will be needed across pretty much all uses and automatically installed as a package dependency when you install any of the others. This package also contains basic CRUD operations.|
+|FakeXrmEasy.Messages|Package that contains further implementations for many other OrganizationRequests|
+|FakeXrmEasy|This is an include package, it references pretty much all the other packages and is meant to be used a tool to ease migration from v1.x.|
 
 
 
@@ -79,6 +82,7 @@ These are some general guidelines about the intended usage. This list will be up
   - Now using GitHub Actions as opposed to AppVeyor previously in 1.x.
   - ** New Middleware!!! ** => effectivley rewritten the core implementation (based on aspnetcore middleware)
   - New GetProperty / SetProperty to allow to dynamically extend context properties
+  - Pipeline Simulation has been redesigned to support any message, not just CRUD operations
   - Massive refactoring
 
   
@@ -105,7 +109,6 @@ Sample folder layout:
 
 The scripts will build and push packages locally to the file system into the default "local-packages" folder. This is handy to test and build everything locally without having to wait for a GitHub Action to complete on every change made. 
 
-
 ## Building on Windows
 
 * [Installing PowerShell on Windows](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)
@@ -114,16 +117,60 @@ The scripts will build and push packages locally to the file system into the def
 
 * [Installing Powershell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
 
+
+There is a fundamental difference between 2.x and 3.x versions. 2.x are multi-target packages. However, in 3.x we dropped support for it and it has a single target: .net core 3.1. 
+Even though the build scripts are pretty much identical, when building 2.x versions you'll need to pass in the -targetFrameworks all parameter.
+
 Once installed, run the following commands:
 
+### Building
 
 The following will just build the solution
 
-    pwsh ./build
+*2.x Versions*
+
+    pwsh ./build.ps1 -targetFrameworks all
+
+*3.x Versions*
+
+    pwsh ./build.ps1
 
 This command will build AND push the output package into a predefined local folder (this will create a local-packages folder where FakeXrmEasy.Abstractions will be pushed)
 
-    pwsh ./build-push-local
+*2.x Versions*
+
+    pwsh ./build-push-local.ps1 -targetFrameworks all
+
+*3.x Versions*
+
+    pwsh ./build-push-local.ps1
+
+
+Also keep in mind **fake-xrm-easy-codeactivities is a Windows only package**, as it depends on System.Activities which wasn't ported to .net core.
+
+## Build Dependencies
+
+You'll need to build (and push locally at least) packages in the following order because of the dependencies:
+
+1. fake-xrm-easy-abstractions
+2. fake-xrm-easy-core
+3. fake-xrm-easy-messages
+4. fake-xrm-easy-plugins
+5. fake-xrm-easy-codeactivities
+6. fake-xrm-easy
+
+
+## Branching Strategy
+
+The repos share a common branching strategy. There are the following long lived branches:
+
+- **2x-dev**: The current dev branch for 2.x versions. The CI action will push packages into our GitHub packages so other repos could grab the outputs from the other builds.
+- **3x-dev**: Similarly to 2.x: the current dev branch for 3x versions
+- **main**: The current production branch for 2.x versions. Packages in this branch will be automatically pushed into Nuget.
+- **3x**: The current production branch for 3.x versions. Packages in this branch will be automatically pushed into Nuget.
+
+The default branch for accepting PRs is 2x-dev. We'll be merging down to 3x-dev to keep functionality as close as possible across versions.
+
 
 ## Contributing
 ------------------------
