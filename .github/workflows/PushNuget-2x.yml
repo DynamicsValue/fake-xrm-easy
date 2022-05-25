@@ -119,7 +119,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Pack
-        run: pwsh ./pack-src.ps1 -targetFrameworks 'all'
+        run: pwsh ./pack.ps1 -targetFrameworks 'all'
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
