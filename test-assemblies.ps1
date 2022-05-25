@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "netcoreapp3.1",
+    [string]$targetFrameworks = "all",
     [string]$configuration = "FAKE_XRM_EASY_9"
  )
 
@@ -53,18 +53,12 @@ if($targetFrameworks -eq "all")
 
         $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net462"
         Test-AssembliesAtPath -assemblyPath $targetPath
-
-        $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/netcoreapp3.1"
-        Test-AssembliesAtPath -assemblyPath $targetPath
     }
     else 
     {
         if($configuration -eq "FAKE_XRM_EASY_9") 
         {
             $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net462"
-            Test-AssembliesAtPath -assemblyPath $targetPath
-
-            $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/netcoreapp3.1"
             Test-AssembliesAtPath -assemblyPath $targetPath
         }
         else 

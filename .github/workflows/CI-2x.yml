@@ -1,8 +1,8 @@
-name: CI
+name: CI-2x
 
 on:
   push:
-    branches: [ 2x-dev, 3x-dev ]
+    branches: [ 2x-dev ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'
@@ -13,34 +13,6 @@ env:
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
-  build-netcore:
-    strategy:
-      fail-fast: false 
-      matrix: 
-        os: [ubuntu-latest, macos-latest]
-    
-    runs-on: ${{matrix.os}} 
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup .NET Core for Actual Source
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.dotnet-version }}
- 
-    - name: Disable local packages feed
-      run: dotnet nuget disable source "local-packages"
-
-    - name: Enable GitHub packages feed
-      run: dotnet nuget enable source github
-      
-    - name: Build
-      run: pwsh ./build.ps1
-      env: 
-        NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
-  
   build-windows:
     strategy:
       fail-fast: false 
@@ -70,44 +42,61 @@ jobs:
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
 
   sonar:
-    needs: build-netcore
-    runs-on: ubuntu-latest
-    
+    needs:  [build-windows]
+    name: Sonar Quality Gate
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache SonarCloud scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v1
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+      
+      - name: Disable local packages feed
+        run: dotnet nuget disable source "local-packages"
 
-    - name: Setup .NET Core for Actual Source
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.dotnet-version }}
- 
-    - name: Disable local packages feed
-      run: dotnet nuget disable source "local-packages"
+      - name: Disable GitHub packages feed to restore dotnet-sonarscanner from nuget
+        run: dotnet nuget disable source github
 
-    - name: Enable GitHub packages feed
-      run: dotnet nuget enable source github 
+      - name: Install SonarCloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-    - name: Quality Gate
-      uses: DynamicsValue/dotnet-sonarscanner@v2.3
-      with:
-        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1
-        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
-        projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-        projectName: fake-xrm-easy
-        sonarOrganisation: dynamicsvalue
-        beginArguments: >
-            /d:sonar.verbose="true"
-            /d:sonar.qualitygate.wait="true"
-            /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"'
-            /d:sonar.coverage.exclusions='"tests/**/**"'
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-        NUGET_USERNAME: DynamicsValue
-        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+      - name: Enable GitHub packages feed again for build
+        run: dotnet nuget enable source github
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          NUGET_USERNAME: DynamicsValue
+          NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"DynamicsValue_fake-xrm-easy" /o:"dynamicsvalue" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\build.ps1 -configuration FAKE_XRM_EASY_9 -targetFrameworks 'all'
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
   pack-push:
-    needs:  [build-netcore, build-windows, sonar]
+    needs:  [build-windows, sonar]
     runs-on: windows-latest
 
     steps:
