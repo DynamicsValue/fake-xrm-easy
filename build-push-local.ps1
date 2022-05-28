@@ -1,6 +1,6 @@
 
 param (
-    [string]$targetFrameworks = "netcoreapp3.1"
+    [string]$targetFrameworks = "all"
 )
 
 ./build.ps1 -targetFramework $targetFrameworks
