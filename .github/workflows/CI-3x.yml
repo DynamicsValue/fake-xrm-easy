@@ -1,8 +1,8 @@
-name: CI
+name: CI-3x
 
 on:
   push:
-    branches: [ 2x-dev, 3x-dev ]
+    branches: [3x-dev ]
     paths-ignore:
       - 'coverage/**'
       - '*.md'

@@ -1,8 +1,8 @@
-name: CI Pull Request
+name: CI Pull Request (3x)
 
 on:
   pull_request:
-    branches: [ 2x-dev, 3x-dev ]
+    branches: [ 3x-dev ]
 
 jobs:
   build:
