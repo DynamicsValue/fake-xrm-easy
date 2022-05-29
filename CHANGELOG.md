@@ -1,3 +1,11 @@
+## [2.1.1]
+
+### Changed
+
+- Made CRM SDK v8.2 dependencies less specific - DynamicsValue/fake-xrm-easy#21
+- Updated build script to also include the major version in the Title property of the generated .nuspec file - DynamicsValue/fake-xrm-easy#41
+- Limit FakeItEasy package dependency to v6.x versions - DynamicsValue/fake-xrm-easy#37
+
 ## [2.1.0]
 
 ### Changed

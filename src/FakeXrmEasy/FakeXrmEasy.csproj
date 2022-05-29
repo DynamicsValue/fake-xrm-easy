@@ -9,7 +9,7 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net452</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net452</TargetFrameworks>
     <PackageId>FakeXrmEasy</PackageId>
-    <VersionPrefix>2.1.0</VersionPrefix>
+    <VersionPrefix>2.1.1</VersionPrefix>
     <Authors>Jordi Montaña</Authors>
     <Company>Dynamics Value</Company>
     <Title>FakeXrmEasy</Title>
@@ -70,7 +70,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.1]" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.1,9.0)" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.2.0.1,9.0)" />
   </ItemGroup>
 
@@ -101,7 +101,7 @@
   </ItemGroup>
   
   <ItemGroup>
-      <PackageReference Include="FakeItEasy" Version="6.0.0" />
+      <PackageReference Include="FakeItEasy" Version="[6.0.0, 7.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
