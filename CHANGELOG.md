@@ -1,3 +1,9 @@
+## [2.1.2]
+
+### Changed
+
+- Fix package references to use 2.1.1 instead of 2.1.0
+
 ## [2.1.1]
 
 ### Changed
