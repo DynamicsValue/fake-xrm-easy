@@ -1,3 +1,9 @@
+## [3.1.2]
+
+### Changed
+
+- Bump Dataverse dependency to 1.0.1
+
 ## [3.1.1]
 
 ### Changed
