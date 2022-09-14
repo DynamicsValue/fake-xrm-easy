@@ -8,7 +8,7 @@ namespace FakeXrmEasy.Tests
     {
         public static List<Assembly> GetExternalAssemblies()
         {
-            var abstractionsAssembly = Assembly.GetAssembly(typeof(PullRequestExceptionTests));
+            var abstractionsAssembly = Assembly.GetAssembly(typeof(UnsupportedExceptionFactoryTests));
 
             return new List<Assembly>()
             {
