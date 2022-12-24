@@ -1,3 +1,7 @@
+## [2.3.0]
+
+- Update package dependencies
+
 ## [2.1.2]
 
 ### Changed
