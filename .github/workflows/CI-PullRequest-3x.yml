@@ -4,10 +4,18 @@ on:
   pull_request:
     branches: [ 3x-dev ]
 
-jobs:
-  build:
+env: 
+  dotnet-version: 3.1.201
+  source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
-    runs-on: ubuntu-latest
+jobs:
+  build-netcore:
+    strategy:
+      fail-fast: false 
+      matrix: 
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    
+    runs-on: ${{matrix.os}} 
 
     steps:
     - uses: actions/checkout@v2
@@ -15,36 +23,83 @@ jobs:
     - name: Setup .NET Core for Actual Source
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.201
+        dotnet-version: ${{ env.dotnet-version }}
  
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
 
-    - name: Install dependencies
-      run: dotnet restore
-    
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+      
     - name: Build
-      run: dotnet build --configuration Debug --no-restore
+      run: pwsh ./build.ps1
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
   
-    - name: Test
-      run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
-  
-    - name: Sonarscanner for dotnet
-      uses: DynamicsValue/dotnet-sonarscanner@v2.2
+  build-net-framework:
+    strategy:
+      fail-fast: false 
+      matrix: 
+        configuration: ['FAKE_XRM_EASY_9', 'FAKE_XRM_EASY_365', 'FAKE_XRM_EASY_2016','FAKE_XRM_EASY_2015','FAKE_XRM_EASY_2013','FAKE_XRM_EASY']
+        
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
       with:
-        buildCommand: dotnet build . --configuration Debug
-        testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
+        dotnet-version: ${{ env.dotnet-version }}
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github
+      
+    - name: Build
+      run: pwsh ./build.ps1 -configuration ${{matrix.configuration}} -targetFrameworks 'all'
+      env: 
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+
+  sonar:
+    needs: build-netcore
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core for Actual Source
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+ 
+    - name: Disable local packages feed
+      run: dotnet nuget disable source "local-packages"
+
+    - name: Enable GitHub packages feed
+      run: dotnet nuget enable source github 
+
+    - name: Quality Gate
+      uses: DynamicsValue/dotnet-sonarscanner@v2.3
+      with:
+        buildCommand: dotnet build . --configuration Debug --framework netcoreapp3.1
+        testCommand: dotnet test . --configuration Debug --framework netcoreapp3.1 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-        projectName: fake-xrm-easy-abstractions
+        projectName: fake-xrm-easy
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
-            /d:sonar.cs.opencover.reportsPaths='"tests/TestResults/**/coverage.opencover.xml"'
-            /d:sonar.coverage.exclusions='"tests/**"'
+            /d:sonar.qualitygate.wait="true"
+            /d:sonar.cs.opencover.reportsPaths='"coverage/**/coverage.opencover.xml"'
+            /d:sonar.coverage.exclusions='"tests/**/**"'
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-    
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        NUGET_USERNAME: DynamicsValue
+        NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
     
     
