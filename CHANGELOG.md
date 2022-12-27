@@ -1,3 +1,7 @@
+## [3.3.0]
+
+- Update package dependencies
+
 ## [3.1.2]
 
 ### Changed
