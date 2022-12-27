@@ -1,3 +1,7 @@
+## [2.3.1]
+
+- Another version to fix FakeXrmEasy.Plugins package dependency
+
 ## [2.3.0]
 
 - Update package dependencies
