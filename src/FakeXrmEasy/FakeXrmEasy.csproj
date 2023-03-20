@@ -64,8 +64,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.0.1" />
-    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.0.1" />
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.0.39" />
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.0.39" />
   </ItemGroup>
 
   <ItemGroup>
