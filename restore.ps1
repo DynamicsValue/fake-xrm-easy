@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "netcoreapp3.1"
+    [string]$targetFrameworks = "net6.0"
  )
 
 $localPackageRestoreFolder = './packages'
@@ -17,7 +17,7 @@ Remove-Item -Recurse -Force $localPackageRestoreFolder
 
 Write-Host "Restoring packages..."
 
-if($targetFrameworks -eq "netcoreapp3.1")
+if($targetFrameworks -eq "net6.0")
 {
     ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY_365" -targetFrameworks $targetFrameworks
     ./restore-configuration.ps1 -configuration "FAKE_XRM_EASY_9" -targetFrameworks $targetFrameworks
