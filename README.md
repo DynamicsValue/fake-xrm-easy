@@ -115,6 +115,8 @@ The scripts will build and push packages locally to the file system into the def
    
 ## Building on Linux
 
+**Note: Currently you can't build this project on linux with net7 installed, it must be uninstalled until this open issue is resovled: https://github.com/microsoft/vstest/issues/4671#issuecomment-1691250341**
+
 * [Installing Powershell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
 
 
