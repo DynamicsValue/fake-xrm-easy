@@ -194,6 +194,6 @@ License questions? Please see our [License FAQ](https://github.com/DynamicsValue
 
 In order to use MFA workflows it is best to use a git credential manager like git-credential-manager.
 
-When using git on linux, it's best to rely on the .deb package install option as the dotnet tool requires at least .net 7 which doesn't work well along with Mono for building projects (see not about building on Linux on the Building on Linux section).
+When using git on linux, it's best to rely on the .deb package install option as the dotnet tool requires at least .net 7 which doesn't work well along with Mono for building projects (see note about building on Linux on the Building on Linux section).
 
 https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
