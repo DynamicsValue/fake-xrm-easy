@@ -1,3 +1,8 @@
+## [2.3.3]
+
+- Increment package versions
+- Update build scripts to use new clean script
+
 ## [2.3.1]
 
 - Another version to fix FakeXrmEasy.Plugins package dependency

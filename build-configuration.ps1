@@ -14,16 +14,10 @@ if(!($packagesFolderExists))
 }
 
 Write-Host " -> Cleaning..." -ForegroundColor Yellow
-if($targetFrameworks -eq "all")
-{
-    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests
-}
-else {
-    dotnet clean /p:Configuration=$configuration /p:PackTests=$packTests /p:TargetFrameworks=$targetFrameworks
-}
-if(!($LASTEXITCODE -eq 0)) {
-    Write-Host " -> Warning on cleaning phase..." ForegroundColor Yellow
-}
+./clean.ps1 -folderPath "./src/FakeXrmEasy/bin"
+./clean.ps1 -folderPath "./src/FakeXrmEasy/obj"
+./clean.ps1 -folderPath "./tests/FakeXrmEasy.Tests/bin"
+./clean.ps1 -folderPath "./tests/FakeXrmEasy.Tests/obj"
 
 Write-Host "Restoring configuration '$($configuration)' and target framework '$($targetFrameworks)'..." -ForegroundColor Yellow
 ./restore-configuration.ps1 -configuration $configuration -targetFrameworks $targetFrameworks
