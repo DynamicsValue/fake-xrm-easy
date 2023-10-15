@@ -1,7 +1,9 @@
+## [3.3.3]
+
+- Increment package versions
+- Update build scripts to use new clean script
 
 ## [3.3.1]
-
-### Changed
 
 - Bump DataverseClient dependency and upgade to net6.0 - https://github.com/DynamicsValue/fake-xrm-easy/issues/90
 
