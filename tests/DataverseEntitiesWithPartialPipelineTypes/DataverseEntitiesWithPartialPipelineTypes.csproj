@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">net462</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">net462;net452</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">net452</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">net452</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net452</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net452</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
 
     <Configurations>FAKE_XRM_EASY;FAKE_XRM_EASY_2013;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_365;FAKE_XRM_EASY_9</Configurations>
     <AssemblyOriginatorKeyFile>..\..\fakexrmeasy.snk</AssemblyOriginatorKeyFile>
@@ -37,45 +37,8 @@
     <DefineConstants>DEBUG;TRACE;</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_9'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.27" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.2.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
-    
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.2,9.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.2.0.1,9.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.1,9.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.2.0.1,9.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2016'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.1.0.2,8.2)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.1.0.2,8.2)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2015'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[7.1.1,8.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[7.1.0.1,8.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[7.0.0.1,8.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2013'">
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[6.1.2,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[6.0.0,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="[6.0.0,7.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.Deployment" Version="[6.0.0,7.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY'">
-    <PackageReference Include="Microsoft.Xrm.Sdk.2011" Version="[5.0.18]" />
-    <PackageReference Include="Microsoft.Crm.Sdk.Proxy.2011" Version="[5.0.18]" />
-    <PackageReference Include="Microsoft.Xrm.Sdk.Workflow.2011" Version="[5.0.18]" />
-    <PackageReference Include="Microsoft.Xrm.Client.2011" Version="[5.0.18]" />
-    <Reference Include="System.ServiceModel" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.0.39" />
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client.Dynamics" Version="1.0.39" />
   </ItemGroup>
 </Project>

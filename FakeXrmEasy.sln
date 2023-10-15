@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataverseEntitiesWithPartia
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
+		FAKE_XRM_EASY_9|Any CPU = FAKE_XRM_EASY_9|Any CPU
+		FAKE_XRM_EASY_9|x64 = FAKE_XRM_EASY_9|x64
+		FAKE_XRM_EASY_9|x86 = FAKE_XRM_EASY_9|x86
 		FAKE_XRM_EASY_2013|Any CPU = FAKE_XRM_EASY_2013|Any CPU
 		FAKE_XRM_EASY_2013|x64 = FAKE_XRM_EASY_2013|x64
 		FAKE_XRM_EASY_2013|x86 = FAKE_XRM_EASY_2013|x86
@@ -32,15 +32,9 @@ Global
 		FAKE_XRM_EASY_365|Any CPU = FAKE_XRM_EASY_365|Any CPU
 		FAKE_XRM_EASY_365|x64 = FAKE_XRM_EASY_365|x64
 		FAKE_XRM_EASY_365|x86 = FAKE_XRM_EASY_365|x86
-		FAKE_XRM_EASY_9|Any CPU = FAKE_XRM_EASY_9|Any CPU
-		FAKE_XRM_EASY_9|x64 = FAKE_XRM_EASY_9|x64
-		FAKE_XRM_EASY_9|x86 = FAKE_XRM_EASY_9|x86
 		FAKE_XRM_EASY|Any CPU = FAKE_XRM_EASY|Any CPU
 		FAKE_XRM_EASY|x64 = FAKE_XRM_EASY|x64
 		FAKE_XRM_EASY|x86 = FAKE_XRM_EASY|x86
-		Release|Any CPU = Release|Any CPU
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9012CADC-5B63-42F3-8945-5FEBD3ED8138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
