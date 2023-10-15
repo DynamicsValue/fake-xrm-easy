@@ -8,9 +8,9 @@
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
     <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
 
-    <VersionPrefix>3.2.0</VersionPrefix>
+    <VersionPrefix>3.3.3</VersionPrefix>
     <IsPackable>false</IsPackable>
-    <Configurations>Debug;Release;FAKE_XRM_EASY;FAKE_XRM_EASY_2013;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_365;FAKE_XRM_EASY_9</Configurations>
+    <Configurations>FAKE_XRM_EASY;FAKE_XRM_EASY_2013;FAKE_XRM_EASY_2015;FAKE_XRM_EASY_2016;FAKE_XRM_EASY_365;FAKE_XRM_EASY_9</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,10 +18,6 @@
     <None Include="../../FakeXrmEasyLogo_128x128.png" Pack="true" PackagePath="/" />
   </ItemGroup>
   
-  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <DefineConstants>DEBUG;TRACE;FAKE_XRM_EASY_9</DefineConstants>
-  </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
     <DefineConstants>DEBUG;TRACE;FAKE_XRM_EASY</DefineConstants>
   </PropertyGroup>
@@ -66,64 +62,69 @@
     <ProjectReference Include="..\..\src\FakeXrmEasy\FakeXrmEasy.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataverseEntities\DataverseEntities.csproj" />
+    <ProjectReference Include="..\DataverseEntitiesWithPartialPipelineTypes\DataverseEntitiesWithPartialPipelineTypes.csproj" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2011" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2011" Version="3.3.3-*" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2013" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2013" Version="3.3.3-*" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2015" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2015" Version="3.3.3-*" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2016" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2016" Version="3.3.3-*" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v365" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v365" Version="3.3.3-*" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">
-    <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Core.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="3.3.1-*" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v9" Version="3.3.1-*" />
+    <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.AbstractionsTests.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Core.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="3.3.3-*" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v9" Version="3.3.3-*" />
   </ItemGroup>
 </Project>
