@@ -115,6 +115,8 @@ The scripts will build and push packages locally to the file system into the def
    
 ## Building on Linux
 
+**Note: Currently you can't build this project on linux with net7 installed, it must be uninstalled until this open issue is resovled: https://github.com/microsoft/vstest/issues/4671#issuecomment-1691250341**
+
 * [Installing Powershell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
 
 
@@ -186,3 +188,12 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 Please see [LICENSE.txt](https://github.com/DynamicsValue/fake-xrm-easy/blob/master/LICENSE.txt).
 
 License questions? Please see our [License FAQ](https://github.com/DynamicsValue/licence-agreements/blob/main/FakeXrmEasy/FAQ.md).
+
+
+### Git Credential Manager setup
+
+In order to use MFA workflows it is best to use a git credential manager like git-credential-manager.
+
+When using git on linux, it's best to rely on the .deb package install option as the dotnet tool requires at least .net 7 which doesn't work well along with Mono for building projects (see note about building on Linux on the Building on Linux section).
+
+https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
