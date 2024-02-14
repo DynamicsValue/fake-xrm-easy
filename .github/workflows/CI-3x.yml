@@ -9,7 +9,7 @@ on:
       - '*.txt'
 
 env: 
-  dotnet-version: 3.1.201
+  dotnet-version: 6.0.407
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
@@ -88,7 +88,7 @@ jobs:
       run: dotnet nuget enable source github 
 
     - name: Quality Gate
-      uses: DynamicsValue/dotnet-sonarscanner@v2.3
+      uses: DynamicsValue/dotnet-sonarscanner@v2.4.7
       with:
         buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1
         testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework netcoreapp3.1 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage

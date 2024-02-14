@@ -9,7 +9,7 @@ on:
       - '*.txt'
 
 env: 
-  dotnet-version: 3.1.201
+  dotnet-version: 6.0.407
   source-url: "https://api.nuget.org/v3/index.json"
 
 jobs:

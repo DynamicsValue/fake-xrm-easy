@@ -1,3 +1,8 @@
+## [2.4.2]
+
+- Increment package versions
+- Update Github actions to increment action versions
+
 ## [2.3.3]
 
 - Increment package versions
