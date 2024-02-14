@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [ 3x-dev ]
 
+env: 
+  dotnet-version: 6.0.407
+
 jobs:
   build:
 
@@ -15,7 +18,7 @@ jobs:
     - name: Setup .NET Core for Actual Source
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.201
+        dotnet-version: ${{ env.dotnet-version }}
  
     - name: Disable local packages feed
       run: dotnet nuget disable source "local-packages"
@@ -30,12 +33,12 @@ jobs:
       run: dotnet test --configuration Debug --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
   
     - name: Sonarscanner for dotnet
-      uses: DynamicsValue/dotnet-sonarscanner@v2.2
+      uses: DynamicsValue/dotnet-sonarscanner@v2.4.7
       with:
         buildCommand: dotnet build . --configuration Debug
         testCommand: dotnet test . --configuration Debug --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-        projectName: fake-xrm-easy-abstractions
+        projectName: fake-xrm-easy
         sonarOrganisation: dynamicsvalue
         beginArguments: >
             /d:sonar.verbose="true"
