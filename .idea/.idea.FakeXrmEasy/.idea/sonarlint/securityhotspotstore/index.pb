@@ -7,3 +7,5 @@
 `tests/DataverseEntitiesWithPartialPipelineTypes/DataverseEntitiesWithPartialPipelineTypes.csproj,7/1/71f57774707cf67d7eb821e8fcb662b68656ca78
 ?
 FakeXrmEasy.sln,0/4/044c3c0e47f7fe85bfcfa1e1bddb5f0a32ba0bfc
+R
+"src/FakeXrmEasy/FakeXrmEasy.csproj,a/5/a54e3d3edaaa08d081a51b91fd31d9eb7a8e413a
