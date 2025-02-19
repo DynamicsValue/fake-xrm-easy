@@ -39,29 +39,24 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_9'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.52" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.1.45" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net462' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
     
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.2,9.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.2.0.1,9.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.1,9.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.2.0.1,9.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2016'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.1.0.2,8.2)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[8.1.0.2,8.2)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2015'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[7.1.1,8.0)" />
     <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[7.1.0.1,8.0)" />
-    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="[7.0.0.1,8.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2013'">
