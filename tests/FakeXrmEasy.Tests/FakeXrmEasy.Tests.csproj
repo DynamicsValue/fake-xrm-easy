@@ -96,72 +96,72 @@
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v2011" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2011" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2011" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2011" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2011" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2011" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2011" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2011" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2011" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2011" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2011" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2011" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v2011" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v2013" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2013" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2013" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2013" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2013" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2013" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2013" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2013" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2013" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2013" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2013" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2013" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v2013" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v2015" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2015" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2015" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2015" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2015" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2015" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2015" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2015" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2015" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v2015" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2015" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2015" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v2015" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v2016" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v2016" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v2016" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v2016" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v2016" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v2016" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v2016" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v2016" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.Plugins.v2016" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v2016" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v2016" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v2016" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v2016" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v365" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v365" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v365" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v365" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v365" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v365" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v365" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v365" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v365" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v365" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v365" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v365" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v365" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v365" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">
     <PackageReference Include="FakeXrmEasy.Abstractions.v9" Version="[2.6.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.AbstractionsTests.v9" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Core.v9" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.CoreTests.v9" Version="[2.6.0-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.MessagesTests.v9" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="[2.6.1-*,3.0)" />
-    <PackageReference Include="FakeXrmEasy.PluginsTests.v9" Version="[2.6.1-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Core.v9" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.CoreTests.v9" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Messages.v9" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.MessagesTests.v9" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="[2.7.0-*,3.0)" />
+    <PackageReference Include="FakeXrmEasy.PluginsTests.v9" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="[2.6.1-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivitiesTests.v9" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
