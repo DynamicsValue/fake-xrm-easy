@@ -72,4 +72,6 @@
     <PackageReference Include="Microsoft.Xrm.Client.2011" Version="[5.0.18]" />
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
+
+  <Import Project="..\DataverseEntities.Shared\DataverseEntities.Shared.projitems" Label="Shared" />
 </Project>

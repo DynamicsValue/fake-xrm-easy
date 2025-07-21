@@ -136,11 +136,14 @@
     <PackageReference Include="FakeXrmEasy.Plugins.v9" Version="[2.7.0-*,3.0)" />
     <PackageReference Include="FakeXrmEasy.CodeActivities.v9" Version="[2.6.1-*,3.0)" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
 
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
     <Message Text="Value of MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" />
-    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md" >
-      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)/../../CHANGELOG.md">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
     </ReadLinesFromFile>
     <Message Text="Value of Lines read = '@(ReleaseNoteLines, '%0a')'" />
     <PropertyGroup>
