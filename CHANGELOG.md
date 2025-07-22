@@ -1,3 +1,7 @@
+## [2.7.0]
+
+- Increment package versions
+
 ## [2.6.1]
 
 - Increment package versions and remove XrmTooling dependency
