@@ -9,3 +9,17 @@
 FakeXrmEasy.sln,0/4/044c3c0e47f7fe85bfcfa1e1bddb5f0a32ba0bfc
 R
 "src/FakeXrmEasy/FakeXrmEasy.csproj,a/5/a54e3d3edaaa08d081a51b91fd31d9eb7a8e413a
+`
+0tests/PluginsForTesting/PluginsForTesting.csproj,0/b/0bd8a612a2ccb7997a6a98e9f2fc0d9a7738ad4a
+y
+Itests/FakeXrmEasy.Tests.PluginsForTesting.Shared/AccountSetTerritories.cs,c/c/ccfa22710a43e466fba4f34ff4583dc96d9271ba
+d
+4src/FakeXrmEasy/Middleware/XrmFakedContextFactory.cs,3/3/339dc5f4dca0e512081b10c3d50b9885d6705c3b
+g
+7tests/FakeXrmEasy.Tests/ExternalTestAssembliesLoader.cs,0/1/010c860907406d94a095b49c77d240d76aa35010
+T
+$tests/FakeXrmEasy.Tests/MainTests.cs,6/4/6424f7c7a487cb74745d67543aa923a793a33f44
+{
+Ktests/FakeXrmEasy.Tests/XunitExtensions/ExternalDependencyFactDiscoverer.cs,2/6/2681ff322e8ae6346d240fd5681b50b451a524b1
+p
+@tests/FakeXrmEasy.Tests/XunitExtensions/ExternalFactAttribute.cs,b/a/ba1b5b0c49c4a7a37ea6c303f46a0c0e84c14bc7
