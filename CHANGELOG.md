@@ -1,3 +1,7 @@
+## [2.8.0]
+
+- Increment package versions
+
 ## [2.7.0]
 
 - Increment package versions
