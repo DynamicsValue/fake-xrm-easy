@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "net6.0",
+    [string]$targetFrameworks = "net8.0",
     [string]$configuration = "FAKE_XRM_EASY_9"
  )
 

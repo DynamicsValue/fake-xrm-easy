@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net6.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net6.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_365'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2016'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2015'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY_2013'">net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(Configuration)'=='FAKE_XRM_EASY'">net8.0</TargetFrameworks>
 
     <VersionPrefix>3.8.0</VersionPrefix>
     <IsPackable>false</IsPackable>

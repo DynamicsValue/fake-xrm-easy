@@ -46,7 +46,7 @@ $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks
 
 if($targetFrameworks -eq "all")
 {
-    $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net6.0"
+    $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net8.0"
     Test-AssembliesAtPath -assemblyPath $targetPath 
 }
 else 

@@ -90,8 +90,8 @@ jobs:
     - name: Quality Gate
       uses: DynamicsValue/dotnet-sonarscanner@v2.4.7
       with:
-        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework net6.0
-        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net6.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework net8.0
+        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net8.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy
         sonarOrganisation: dynamicsvalue

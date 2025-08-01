@@ -8,7 +8,7 @@
             "args": [
                 "build",
                 "${workspaceFolder}/tests/FakeXrmEasy.Tests/FakeXrmEasy.Tests.csproj",
-                "--framework 'net6.0' --configuration 'FAKE_XRM_EASY_9'",
+                "--framework 'net8.0' --configuration 'FAKE_XRM_EASY_9'",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
