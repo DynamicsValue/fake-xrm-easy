@@ -5,7 +5,7 @@ on:
     branches: [ 3x-dev ]
 
 env: 
-  dotnet-version: 6.0.407
+  dotnet-version: 8.0.x
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
 
 jobs:
