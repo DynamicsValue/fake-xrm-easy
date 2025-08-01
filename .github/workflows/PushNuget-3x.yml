@@ -9,7 +9,7 @@ on:
       - '*.txt'
 
 env: 
-  dotnet-version: 6.0.407
+  dotnet-version: 8.0.x
   source-url: "https://api.nuget.org/v3/index.json"
 
 jobs:
@@ -88,10 +88,10 @@ jobs:
       run: dotnet nuget enable source github 
 
     - name: Quality Gate
-      uses: DynamicsValue/dotnet-sonarscanner@v2.4.7
+      uses: DynamicsValue/dotnet-sonarscanner@v2.6.0
       with:
-        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework net6.0
-        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net6.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+        buildCommand: dotnet build . --configuration 'FAKE_XRM_EASY_9' --framework net8.0
+        testCommand: dotnet test . --configuration 'FAKE_XRM_EASY_9' --framework net8.0 --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
         projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         projectName: fake-xrm-easy
         sonarOrganisation: dynamicsvalue
