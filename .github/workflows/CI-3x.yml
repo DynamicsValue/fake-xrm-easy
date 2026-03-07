@@ -11,7 +11,9 @@ on:
 env: 
   dotnet-version: 6.0.407
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
-
+  GH_HEAD_REF: ${{ github.head_ref }}
+  GH_RUN_NUMBER: ${{ github.run_number }}
+  
 jobs:
   build-netcore:
     strategy:
@@ -131,7 +133,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Pack
-        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "zci.${{ github.head_ref }}${{ github.run_number }}"
+        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "zci.$env:GH_HEAD_REF${{ github.run_number }}"
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
