@@ -133,7 +133,7 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Pack
-        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "zci.$env:GH_HEAD_REF${{ github.run_number }}"
+        run: pwsh ./pack.ps1 -targetFrameworks 'all' -versionSuffix "zci.$env:GH_HEAD_REF$env:GH_RUN_NUMBER"
         env: 
           NUGET_USERNAME: DynamicsValue
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
