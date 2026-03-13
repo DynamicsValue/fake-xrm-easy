@@ -137,7 +137,9 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Src
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey ${{ secrets.NUGET_API_KEY }} 
+        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey $env:NUGET_API_KEY
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}    
 
 
 
