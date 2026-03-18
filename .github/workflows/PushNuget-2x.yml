@@ -91,9 +91,9 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"DynamicsValue_fake-xrm-easy" /o:"dynamicsvalue" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"DynamicsValue_fake-xrm-easy" /o:"dynamicsvalue" /d:sonar.login="$env:SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
           .\build.ps1 -configuration FAKE_XRM_EASY_9 -targetFrameworks 'all'
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="$env:SONAR_TOKEN"
 
   pack-push:
     needs:  [build-windows, sonar]
@@ -126,7 +126,9 @@ jobs:
           NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
 
       - name: Push Src
-        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey ${{ secrets.NUGET_API_KEY }} 
+        run: nuget.exe push .\nupkgs\FakeXrmEasy.*.nupkg -Source ${{ env.source-url }} -ApiKey $env:NUGET_API_KEY
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}    
 
 
 
