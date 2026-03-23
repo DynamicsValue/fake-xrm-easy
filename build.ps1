@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "net8.0"
+    [string]$targetFrameworks = "all"
  )
 
 Write-Host "Restoring packages..."
