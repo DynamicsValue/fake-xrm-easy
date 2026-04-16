@@ -90,6 +90,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataverseEntities\DataverseEntities.csproj" />
+    <ProjectReference Include="..\DataverseEntities2\DataverseEntities2.csproj" />
     <ProjectReference Include="..\DataverseEntitiesWithPartialPipelineTypes\DataverseEntitiesWithPartialPipelineTypes.csproj" />
   </ItemGroup>
 
