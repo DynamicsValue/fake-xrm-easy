@@ -1,3 +1,8 @@
+## [2.9.1]
+
+- Add net48 target framework to v9 packages
+- Increment package versions
+
 ## [2.9.0]
 
 - Upgrade CrmSdk Coreassemblies for https://github.com/DynamicsValue/fake-xrm-easy/issues/217
