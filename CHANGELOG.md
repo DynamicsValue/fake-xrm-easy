@@ -1,6 +1,9 @@
-## [3.9.0]
+## [3.9.1]
 
-- Upgrade CrmSdk Coreassemblies for https://github.com/DynamicsValue/fake-xrm-easy/issues/217
+- Upgraded Microsoft.PowerPlatform.Dataverse.Client to 1.2.10
+- Increment package versions
+
+## [3.9.0]
 
 - Increment package versions
 

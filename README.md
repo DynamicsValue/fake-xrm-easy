@@ -1,11 +1,15 @@
 
 # FakeXrmEasy: The Test Automation Framework for the Power Platform / Dataverse
 
+### Made by humans for humans ... and hallucinating coding agents 
+
 This README is intended at contributors and provides info about building / contributing to the project. For general guidelines about the usage (how to use etc) there is a [dedicated docs site here](https://dynamicsvalue.github.io/fake-xrm-easy-docs/).
 
 ## Table of Contents
 
 [Why should my company use FakeXrmEasy?](#why-should-my-company-use-fakexrmeasy)
+
+[Docs](https://dynamicsvalue.github.io/fake-xrm-easy-docs/)
 
 [Packages](#packages)
 
