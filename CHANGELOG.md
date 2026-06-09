@@ -1,3 +1,7 @@
+## [2.9.2]
+
+- Increment package versions
+
 ## [2.9.1]
 
 - Add net48 target framework to v9 packages
