@@ -47,15 +47,27 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_365'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.2.0.1,9.0)" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2016'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[8.1.0.2,8.2)" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2015'">
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="[7.1.1,8.0)" />
     <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[7.1.0.1,8.0)" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY_2013'">
@@ -63,6 +75,10 @@
     <PackageReference Include="Microsoft.CrmSdk.Extensions" Version="[6.0.0,7.0)" />
     <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="[6.0.0,7.0)" />
     <PackageReference Include="Microsoft.CrmSdk.Deployment" Version="[6.0.0,7.0)" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' And '$(Configuration)'=='FAKE_XRM_EASY'">
@@ -71,5 +87,9 @@
     <PackageReference Include="Microsoft.Xrm.Sdk.Workflow.2011" Version="[5.0.18]" />
     <PackageReference Include="Microsoft.Xrm.Client.2011" Version="[5.0.18]" />
     <Reference Include="System.ServiceModel" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
