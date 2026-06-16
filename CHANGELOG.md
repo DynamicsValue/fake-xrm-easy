@@ -1,3 +1,7 @@
+## [2.9.3]
+
+- Increment package versions
+
 ## [2.9.2]
 
 - Add .net ref assemblies - https://github.com/DynamicsValue/fake-xrm-easy/issues/249
