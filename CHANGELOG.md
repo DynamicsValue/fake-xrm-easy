@@ -1,4 +1,16 @@
+## [3.9.3]
+
+- Increment package versions
+
 ## [3.9.2]
+
+- Increment package versions
+
+## [3.9.1]
+
+- Increment package versions
+
+## [3.9.0]
 
 - Increment package versions
 
