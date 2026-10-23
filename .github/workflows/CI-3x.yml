@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Setup .NET Core for Actual Source
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ env.dotnet-version }}
  
@@ -55,7 +55,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Setup .NET Core for Actual Source
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ env.dotnet-version }}
  
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup .NET Core for Actual Source
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ env.dotnet-version }}
  
