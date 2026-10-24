@@ -11,10 +11,6 @@
     <AssemblyOriginatorKeyFile>..\..\fakexrmeasy.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY'">
-    <DefineConstants>DEBUG;TRACE;</DefineConstants>
-  </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)'=='FAKE_XRM_EASY_9'">
     <DefineConstants>DEBUG;TRACE;</DefineConstants>
