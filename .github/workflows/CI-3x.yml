@@ -9,7 +9,7 @@ on:
       - '*.txt'
 
 env: 
-  dotnet-version: 8.0.x
+  dotnet-version: 10.0.x
   source-url: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
   GH_HEAD_REF: ${{ github.head_ref }}
   GH_RUN_NUMBER: ${{ github.run_number }}
