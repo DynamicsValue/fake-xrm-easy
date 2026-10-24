@@ -27,7 +27,7 @@ function Test-OneAssemblyAtPath
     }
 
     Write-Host  " -> Running tests for $($assemblyName)..." -ForegroundColor Yellow
-    dotnet test "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
+    dotnet test --test-modules "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
 }
 
 function Test-AssembliesAtPath 

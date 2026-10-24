@@ -36,11 +36,6 @@ if(!($LASTEXITCODE -eq 0)) {
 }
 
 Write-Host "Testing configuration '$($configuration)' and target framework '$($targetFrameworks)'..." -ForegroundColor Yellow
-./test-assemblies -configuration $configuration -targetFramework $targetFrameworks
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error during test assemblies step"
-}
-
 if($targetFrameworks -eq "all")
 {
     dotnet test --configuration $configuration --no-build --no-restore --verbosity normal --coverlet --coverlet-output-format opencover --results-directory ./coverage
