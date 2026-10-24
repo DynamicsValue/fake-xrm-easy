@@ -36,6 +36,15 @@ jobs:
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+
+    - name: Diagnose xunit
+      if: always()
+      shell: pwsh
+      run: |
+        $env:Configuration = '${{ matrix.configuration }}'
+        dotnet list tests/FakeXrmEasy.Tests/FakeXrmEasy.Tests.csproj package --include-transitive
+        dotnet nuget why tests/FakeXrmEasy.Tests/FakeXrmEasy.Tests.csproj xunit.core
+
   
   build-windows:
     strategy:
@@ -64,6 +73,7 @@ jobs:
       env: 
         NUGET_USERNAME: DynamicsValue
         NUGET_TOKEN: ${{ secrets.PACKAGES_TOKEN }} 
+  
 
     
     
