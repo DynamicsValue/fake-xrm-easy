@@ -1,5 +1,5 @@
 param (
-    [string]$targetFrameworks = "net8.0",
+    [string]$targetFrameworks = "all",
     [string]$configuration = "FAKE_XRM_EASY_9"
  )
 
@@ -36,18 +36,13 @@ if(!($LASTEXITCODE -eq 0)) {
 }
 
 Write-Host "Testing configuration '$($configuration)' and target framework '$($targetFrameworks)'..." -ForegroundColor Yellow
-./test-assemblies -configuration $configuration -targetFramework $targetFrameworks
-if(!($LASTEXITCODE -eq 0)) {
-    throw "Error during test assemblies step"
-}
-
 if($targetFrameworks -eq "all")
 {
-    dotnet test --configuration $configuration --no-build --no-restore --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --no-restore --verbosity normal --coverlet --coverlet-output-format opencover --results-directory ./coverage
 }
 else 
 {
-    dotnet test --configuration $configuration --no-build --no-restore --framework $targetFrameworks --verbosity normal --collect:"XPlat code coverage" --settings tests/.runsettings --results-directory ./coverage
+    dotnet test --configuration $configuration --no-build --no-restore --framework $targetFrameworks --verbosity normal --coverlet --coverlet-output-format opencover --results-directory ./coverage
 }
 
 if(!($LASTEXITCODE -eq 0)) {

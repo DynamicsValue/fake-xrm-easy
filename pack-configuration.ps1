@@ -1,6 +1,6 @@
 param (
     [string]$versionSuffix = "",
-    [string]$targetFrameworks = "net8.0",
+    [string]$targetFrameworks = "all",
     [string]$configuration = "FAKE_XRM_EASY_9"
  )
 
