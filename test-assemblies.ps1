@@ -27,7 +27,7 @@ function Test-OneAssemblyAtPath
     }
 
     Write-Host  " -> Running tests for $($assemblyName)..." -ForegroundColor Yellow
-    dotnet test "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
+    dotnet test --test-modules "$($assemblyPath)$($dirSeparator)$($assemblyName).dll"
 }
 
 function Test-AssembliesAtPath 
@@ -46,7 +46,7 @@ $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/$($targetFrameworks
 
 if($targetFrameworks -eq "all")
 {
-    $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net8.0"
+    $targetPath = "tests/FakeXrmEasy.Tests/bin/$($configuration)/net10.0"
     Test-AssembliesAtPath -assemblyPath $targetPath 
 }
 else 
