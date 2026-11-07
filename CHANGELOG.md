@@ -1,3 +1,7 @@
+## [2.10.0]
+
+- Increment package versions
+
 ## [2.9.6]
 
 - Increment package versions
