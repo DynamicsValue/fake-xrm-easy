@@ -1,3 +1,7 @@
+## [3.10.0]
+
+- Increment package versions
+
 ## [3.9.6]
 
 - Increment package versions
